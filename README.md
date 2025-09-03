@@ -61,6 +61,8 @@ oc create -f logging-clusterlogforwarder.yaml
 
 Verificar
 oc get pods -n openshift-logging
+
+oc apply -f UIPlugin.yaml
 ```
 
 # Revisar NFS

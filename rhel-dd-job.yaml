@@ -1,0 +1,23 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: rhel-dd-job
+spec:
+  template:
+    spec:
+      restartPolicy: Never
+      containers:
+      - name: rhel
+        image: registry.redhat.io/rhel8/rsyslog   # Imagen RHEL que incluye coreutils (dd)
+        command: ["/bin/bash", "-c"]
+        args:
+          - >
+            dd if=/dev/zero of=/mnt/test/testfile bs=1M count=100 oflag=direct status=progress
+        volumeMounts:
+        - name: test-storage
+          mountPath: /mnt/test
+      volumes:
+      - name: test-storage
+        persistentVolumeClaim:
+          claimName: rhel-pvc
+  backoffLimit: 0

@@ -4,8 +4,9 @@
 
 ```shell
 oc create ns nfs
+# Revisar el namespace en rbac.yaml
 oc create -f rbac.yaml
-Si no tiene acceso a internet se debe bajar la imagen
+# Si no tiene acceso a internet se debe bajar la imagen
 oc import-image nfs-subdir-external-provisioner:v4.0.2 --from=quay.io/gchavezt/nfs-subdir-external-provisioner:v4.0.2 --confirm -n nfs
 oc create -f deployment.yaml
 oc create -f class.yaml
@@ -62,7 +63,36 @@ oc create -f logging-clusterlogforwarder.yaml
 Verificar
 oc get pods -n openshift-logging
 
-oc apply -f UIPlugin.yaml
+Instalar el operador de Cluster Observability Operator
+oc create -f UIPlugin.yaml
+```
+
+# Prueba de escritura en PVC
+
+```shell
+Prueba con Deplyment
+oc apply -f rhel-dd-deployment.yaml
+oc rsh deploy/rhel-dd-deployment
+dd if=/dev/zero of=/mnt/test/testfile bs=1M count=100 oflag=direct
+------ Salida esperada
+100+0 records in
+100+0 records out
+104857600 bytes (105 MB) copied, 1.234 s, 85.0 MB/s
+------
+Progreso en vivo
+dd if=/dev/zero of=/mnt/test/testfile bs=1M count=100 oflag=direct status=progress
+ls -lh /mnt/test/testfile
+
+Prueba con Pod
+oc apply -f rhel-dd-pod.yaml
+oc rsh rhel-dd
+dd if=/dev/zero of=/mnt/test/testfile bs=1M count=100 oflag=direct status=progress
+
+Prueba con Job
+oc apply -f rhel-dd-job.yaml
+oc get jobs
+oc get pods --selector=job-name=rhel-dd-job
+oc logs <nombre-del-pod>
 ```
 
 # Revisar NFS

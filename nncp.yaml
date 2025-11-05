@@ -1,0 +1,19 @@
+apiVersion: nmstate.io/v1
+kind: NodeNetworkConfigurationPolicy
+metadata:
+  name: ens2f0np0-node01
+spec:
+  nodeSelector:
+    kubernetes.io/hostname: node01
+  desiredState:
+  # Interfaces adicionales que queremos que queden permanentes
+    interfaces:
+    - name: ens2f0np0
+      type: ethernet
+      state: up
+      ipv4:
+        enabled: true
+        dhcp: false
+        address:
+        - ip: 128.151.100.132
+          prefix-length: 16

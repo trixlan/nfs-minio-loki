@@ -1,0 +1,10 @@
+# En el cluster de DESTINO (SNO con LVM Storage)
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: storage-class-map-config # Nombre del ConfigMap
+  namespace: oadp-user1           # Usa tu namespace de OADP
+data:
+  # Clave: StorageClass original del cluster de origen (Ceph)
+  # Valor: StorageClass de destino en el SNO (LVM)
+  ocs-external-storagecluster-ceph-rbd: lvms-vg1

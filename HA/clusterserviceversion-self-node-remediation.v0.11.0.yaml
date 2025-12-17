@@ -1,0 +1,834 @@
+﻿apiVersion: operators.coreos.com/v1alpha1
+kind: ClusterServiceVersion
+metadata:
+  annotations:
+    olm.skipRange: '>=0.10.0 <0.11.0'
+    features.operators.openshift.io/token-auth-azure: 'false'
+    operators.openshift.io/valid-subscription: '["OpenShift Kubernetes Engine", "OpenShift Container Platform", "OpenShift Platform Plus"]'
+    operators.operatorframework.io/builder: operator-sdk-v1.33.0
+    features.operators.openshift.io/token-auth-gcp: 'false'
+    operators.operatorframework.io/project_layout: go.kubebuilder.io/v3
+    olm.targetNamespaces: ''
+    operatorframework.io/properties: '{"properties":[{"type":"olm.gvk","value":{"group":"self-node-remediation.medik8s.io","kind":"SelfNodeRemediation","version":"v1alpha1"}},{"type":"olm.gvk","value":{"group":"self-node-remediation.medik8s.io","kind":"SelfNodeRemediationConfig","version":"v1alpha1"}},{"type":"olm.gvk","value":{"group":"self-node-remediation.medik8s.io","kind":"SelfNodeRemediationTemplate","version":"v1alpha1"}},{"type":"olm.package","value":{"packageName":"self-node-remediation","version":"0.11.0"}}]}'
+    repository: 'https://github.com/medik8s/self-node-remediation'
+    operatorframework.io/suggested-namespace-template: '{"kind":"Namespace","apiVersion":"v1","metadata":{"name":"openshift-workload-availability","annotations":{"openshift.io/node-selector":""}}}'
+    features.operators.openshift.io/token-auth-aws: 'false'
+    support: Red Hat
+    alm-examples: |-
+      [
+        {
+          "apiVersion": "self-node-remediation.medik8s.io/v1alpha1",
+          "kind": "SelfNodeRemediation",
+          "metadata": {
+            "name": "selfnoderemediation-sample"
+          },
+          "spec": {}
+        },
+        {
+          "apiVersion": "self-node-remediation.medik8s.io/v1alpha1",
+          "kind": "SelfNodeRemediationConfig",
+          "metadata": {
+            "name": "self-node-remediation-config",
+            "namespace": "self-node-remediation"
+          },
+          "spec": {}
+        },
+        {
+          "apiVersion": "self-node-remediation.medik8s.io/v1alpha1",
+          "kind": "SelfNodeRemediationTemplate",
+          "metadata": {
+            "name": "selfnoderemediationtemplate-sample"
+          },
+          "spec": {
+            "template": {
+              "spec": {}
+            }
+          }
+        }
+      ]
+    capabilities: Basic Install
+    features.operators.openshift.io/csi: 'false'
+    features.operators.openshift.io/fips-compliant: 'true'
+    features.operators.openshift.io/cnf: 'false'
+    olm.operatorNamespace: openshift-workload-availability
+    containerImage: 'registry.redhat.io/workload-availability/self-node-remediation-rhel9-operator@sha256:f13f5b22014e8819be39f45e476aef4a67e3645f9d20ad67b10fae9325ae473a'
+    createdAt: '2025-11-13 13:22:41'
+    features.operators.openshift.io/cni: 'false'
+    categories: OpenShift Optional
+    features.operators.openshift.io/proxy-aware: 'false'
+    operatorframework.io/suggested-namespace: openshift-workload-availability
+    description: Self Node Remediation Operator for remediate itself in case of a failure.
+    olm.operatorGroup: openshift-workload-availability-bjlk4
+    features.operators.openshift.io/disconnected: 'true'
+    features.operators.openshift.io/tls-profiles: 'false'
+  resourceVersion: '31349475'
+  name: self-node-remediation.v0.11.0
+  uid: a5cf9aeb-615f-41fa-b8d5-b7ff6e3eee7d
+  creationTimestamp: '2025-12-05T16:11:51Z'
+  generation: 1
+  managedFields:
+    - apiVersion: operators.coreos.com/v1alpha1
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:metadata':
+          'f:annotations':
+            'f:features.operators.openshift.io/csi': {}
+            'f:features.operators.openshift.io/token-auth-aws': {}
+            'f:features.operators.openshift.io/cnf': {}
+            'f:features.operators.openshift.io/cni': {}
+            'f:createdAt': {}
+            'f:features.operators.openshift.io/proxy-aware': {}
+            'f:alm-examples': {}
+            'f:description': {}
+            'f:capabilities': {}
+            'f:features.operators.openshift.io/fips-compliant': {}
+            'f:olm.skipRange': {}
+            .: {}
+            'f:operators.openshift.io/valid-subscription': {}
+            'f:containerImage': {}
+            'f:categories': {}
+            'f:operatorframework.io/suggested-namespace': {}
+            'f:operators.operatorframework.io/project_layout': {}
+            'f:features.operators.openshift.io/disconnected': {}
+            'f:features.operators.openshift.io/tls-profiles': {}
+            'f:operatorframework.io/properties': {}
+            'f:features.operators.openshift.io/token-auth-azure': {}
+            'f:operatorframework.io/suggested-namespace-template': {}
+            'f:operators.operatorframework.io/builder': {}
+            'f:features.operators.openshift.io/token-auth-gcp': {}
+            'f:support': {}
+            'f:repository': {}
+          'f:labels':
+            .: {}
+            'f:olm.managed': {}
+        'f:spec':
+          'f:version': {}
+          'f:maturity': {}
+          'f:provider':
+            .: {}
+            'f:name': {}
+            'f:url': {}
+          'f:links': {}
+          'f:install':
+            .: {}
+            'f:spec':
+              .: {}
+              'f:clusterPermissions': {}
+              'f:deployments': {}
+              'f:permissions': {}
+            'f:strategy': {}
+          'f:maintainers': {}
+          'f:description': {}
+          'f:installModes': {}
+          'f:minKubeVersion': {}
+          'f:icon': {}
+          'f:customresourcedefinitions':
+            .: {}
+            'f:owned': {}
+          .: {}
+          'f:relatedImages': {}
+          'f:cleanup':
+            .: {}
+            'f:enabled': {}
+          'f:apiservicedefinitions': {}
+          'f:replaces': {}
+          'f:displayName': {}
+          'f:webhookdefinitions': {}
+          'f:keywords': {}
+      manager: catalog
+      operation: Update
+      time: '2025-12-05T16:11:51Z'
+    - apiVersion: operators.coreos.com/v1alpha1
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:metadata':
+          'f:annotations':
+            'f:olm.operatorGroup': {}
+            'f:olm.operatorNamespace': {}
+            'f:olm.targetNamespaces': {}
+          'f:finalizers':
+            .: {}
+            'v:"operators.coreos.com/csv-cleanup"': {}
+          'f:labels':
+            'f:operators.coreos.com/self-node-remediation.openshift-workload-availability': {}
+      manager: olm
+      operation: Update
+      time: '2025-12-05T16:11:53Z'
+    - apiVersion: operators.coreos.com/v1alpha1
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:status':
+          'f:lastUpdateTime': {}
+          'f:requirementStatus': {}
+          'f:phase': {}
+          'f:certsRotateAt': {}
+          'f:certsLastUpdated': {}
+          'f:lastTransitionTime': {}
+          'f:conditions': {}
+          .: {}
+          'f:cleanup': {}
+          'f:message': {}
+          'f:reason': {}
+      manager: olm
+      operation: Update
+      subresource: status
+      time: '2025-12-05T17:01:14Z'
+  namespace: openshift-workload-availability
+  finalizers:
+    - operators.coreos.com/csv-cleanup
+  labels:
+    olm.managed: 'true'
+    operators.coreos.com/self-node-remediation.openshift-workload-availability: ''
+spec:
+  customresourcedefinitions:
+    owned:
+      - description: SelfNodeRemediationConfig is the Schema for the selfnoderemediationconfigs API in which a user can configure the self node remediation agents
+        displayName: Self Node Remediation Config
+        kind: SelfNodeRemediationConfig
+        name: selfnoderemediationconfigs.self-node-remediation.medik8s.io
+        resources:
+          - kind: SelfNodeRemediationConfig
+            name: selfnoderemediationconfigs
+            version: v1alpha1
+        version: v1alpha1
+      - description: SelfNodeRemediation is the Schema for the selfnoderemediations API
+        displayName: Self Node Remediation
+        kind: SelfNodeRemediation
+        name: selfnoderemediations.self-node-remediation.medik8s.io
+        resources:
+          - kind: SelfNodeRemediation
+            name: selfnoderemediations
+            version: v1alpha1
+        statusDescriptors:
+          - description: 'Represents the observations of a SelfNodeRemediation''s current state. Known .status.conditions.type are: "Processing"'
+            displayName: conditions
+            path: conditions
+            x-descriptors:
+              - 'urn:alm:descriptor:com.tectonic.ui:conditions'
+          - description: LastError captures the last error that occurred during remediation. If no error occurred it would be empty
+            displayName: Last Error
+            path: lastError
+          - description: 'Phase represents the current phase of remediation, One of: TBD'
+            displayName: Phase
+            path: phase
+          - description: TimeAssumedRebooted is the time by then the unhealthy node assumed to be rebooted
+            displayName: Time Assumed Rebooted
+            path: timeAssumedRebooted
+        version: v1alpha1
+      - description: SelfNodeRemediationTemplate is the Schema for the selfnoderemediationtemplates API
+        displayName: Self Node Remediation Template
+        kind: SelfNodeRemediationTemplate
+        name: selfnoderemediationtemplates.self-node-remediation.medik8s.io
+        resources:
+          - kind: SelfNodeRemediationTemplate
+            name: selfnoderemediationtemplates
+            version: v1alpha1
+        specDescriptors:
+          - description: Template defines the desired state of SelfNodeRemediationTemplate
+            displayName: Template
+            path: template
+        version: v1alpha1
+  relatedImages:
+    - image: 'registry.redhat.io/workload-availability/self-node-remediation-rhel9-operator@sha256:f13f5b22014e8819be39f45e476aef4a67e3645f9d20ad67b10fae9325ae473a'
+      name: manager
+    - image: 'registry.redhat.io/openshift4/ose-kube-rbac-proxy-rhel9@sha256:b488f8b1cda2b5d2c9c9a0b55fcc9e687716f62fb101abea3f44b8fa46f6c814'
+      name: kube-rbac-proxy
+  cleanup:
+    enabled: false
+  apiservicedefinitions: {}
+  webhookdefinitions:
+    - generateName: mselfnoderemediationtemplate.kb.io
+      containerPort: 443
+      sideEffects: None
+      deploymentName: self-node-remediation-controller-manager
+      targetPort: 9443
+      rules:
+        - apiGroups:
+            - self-node-remediation.medik8s.io
+          apiVersions:
+            - v1alpha1
+          operations:
+            - CREATE
+            - UPDATE
+          resources:
+            - selfnoderemediationtemplates
+      type: MutatingAdmissionWebhook
+      admissionReviewVersions:
+        - v1
+      webhookPath: /mutate-self-node-remediation-medik8s-io-v1alpha1-selfnoderemediationtemplate
+      failurePolicy: Fail
+    - generateName: vselfnoderemediation.kb.io
+      containerPort: 443
+      sideEffects: None
+      deploymentName: self-node-remediation-controller-manager
+      targetPort: 9443
+      rules:
+        - apiGroups:
+            - self-node-remediation.medik8s.io
+          apiVersions:
+            - v1alpha1
+          operations:
+            - CREATE
+            - UPDATE
+          resources:
+            - selfnoderemediations
+      type: ValidatingAdmissionWebhook
+      admissionReviewVersions:
+        - v1
+      webhookPath: /validate-self-node-remediation-medik8s-io-v1alpha1-selfnoderemediation
+      failurePolicy: Ignore
+    - generateName: vselfnoderemediationconfig.kb.io
+      containerPort: 443
+      sideEffects: None
+      deploymentName: self-node-remediation-controller-manager
+      targetPort: 9443
+      rules:
+        - apiGroups:
+            - self-node-remediation.medik8s.io
+          apiVersions:
+            - v1alpha1
+          operations:
+            - CREATE
+            - UPDATE
+            - DELETE
+          resources:
+            - selfnoderemediationconfigs
+      type: ValidatingAdmissionWebhook
+      admissionReviewVersions:
+        - v1
+      webhookPath: /validate-self-node-remediation-medik8s-io-v1alpha1-selfnoderemediationconfig
+      failurePolicy: Fail
+    - generateName: vselfnoderemediationtemplate.kb.io
+      containerPort: 443
+      sideEffects: None
+      deploymentName: self-node-remediation-controller-manager
+      targetPort: 9443
+      rules:
+        - apiGroups:
+            - self-node-remediation.medik8s.io
+          apiVersions:
+            - v1alpha1
+          operations:
+            - CREATE
+            - UPDATE
+          resources:
+            - selfnoderemediationtemplates
+      type: ValidatingAdmissionWebhook
+      admissionReviewVersions:
+        - v1
+      webhookPath: /validate-self-node-remediation-medik8s-io-v1alpha1-selfnoderemediationtemplate
+      failurePolicy: Fail
+  keywords:
+    - fencing
+    - remediation
+    - auto-healing
+    - recovery
+    - high-availability
+    - baremetal
+    - SNR
+  displayName: Self Node Remediation Operator
+  provider:
+    name: Red Hat
+    url: 'https://www.redhat.com'
+  maturity: alpha
+  installModes:
+    - supported: false
+      type: OwnNamespace
+    - supported: false
+      type: SingleNamespace
+    - supported: false
+      type: MultiNamespace
+    - supported: true
+      type: AllNamespaces
+  version: 0.11.0
+  icon:
+    - base64data: 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
+      mediatype: image/png
+  minKubeVersion: 1.25.0
+  links:
+    - name: Self Node Remediation
+      url: 'https://access.redhat.com/documentation/en-us/workload_availability_for_red_hat_openshift/25.9/html/remediation_fencing_and_maintenance/about-remediation-fencing-maintenance'
+    - name: Source Code
+      url: 'https://github.com/medik8s/self-node-remediation'
+  install:
+    spec:
+      clusterPermissions:
+        - rules:
+            - apiGroups:
+                - ''
+              resources:
+                - namespaces
+              verbs:
+                - get
+                - list
+                - watch
+            - apiGroups:
+                - ''
+              resources:
+                - nodes
+                - secrets
+              verbs:
+                - create
+                - delete
+                - get
+                - list
+                - patch
+                - update
+                - watch
+            - apiGroups:
+                - ''
+              resources:
+                - pods
+              verbs:
+                - delete
+                - deletecollection
+                - get
+                - list
+                - update
+                - watch
+            - apiGroups:
+                - apps
+              resources:
+                - daemonsets
+              verbs:
+                - create
+                - delete
+                - get
+                - list
+                - patch
+                - update
+                - watch
+            - apiGroups:
+                - apps
+              resources:
+                - daemonsets/finalizers
+              verbs:
+                - update
+            - apiGroups:
+                - machine.openshift.io
+              resources:
+                - machines
+              verbs:
+                - create
+                - delete
+                - get
+                - list
+                - patch
+                - update
+                - watch
+            - apiGroups:
+                - machine.openshift.io
+              resources:
+                - machines/status
+              verbs:
+                - get
+                - patch
+                - update
+            - apiGroups:
+                - security.openshift.io
+              resourceNames:
+                - privileged
+              resources:
+                - securitycontextconstraints
+              verbs:
+                - use
+            - apiGroups:
+                - self-node-remediation.medik8s.io
+              resources:
+                - selfnoderemediationconfigs
+                - selfnoderemediations
+                - selfnoderemediationtemplates
+              verbs:
+                - create
+                - delete
+                - get
+                - list
+                - patch
+                - update
+                - watch
+            - apiGroups:
+                - self-node-remediation.medik8s.io
+              resources:
+                - selfnoderemediationconfigs/finalizers
+                - selfnoderemediations/finalizers
+                - selfnoderemediationtemplates/finalizers
+              verbs:
+                - update
+            - apiGroups:
+                - self-node-remediation.medik8s.io
+              resources:
+                - selfnoderemediationconfigs/status
+                - selfnoderemediations/status
+                - selfnoderemediationtemplates/status
+              verbs:
+                - get
+                - patch
+                - update
+            - apiGroups:
+                - storage.k8s.io
+              resources:
+                - volumeattachments
+              verbs:
+                - delete
+                - deletecollection
+                - get
+                - list
+                - update
+                - watch
+            - apiGroups:
+                - authentication.k8s.io
+              resources:
+                - tokenreviews
+              verbs:
+                - create
+            - apiGroups:
+                - authorization.k8s.io
+              resources:
+                - subjectaccessreviews
+              verbs:
+                - create
+          serviceAccountName: self-node-remediation-controller-manager
+      deployments:
+        - label:
+            control-plane: controller-manager
+            self-node-remediation-operator: ''
+          name: self-node-remediation-controller-manager
+          spec:
+            replicas: 2
+            selector:
+              matchLabels:
+                control-plane: controller-manager
+                self-node-remediation-operator: ''
+            strategy: {}
+            template:
+              metadata:
+                creationTimestamp: null
+                labels:
+                  control-plane: controller-manager
+                  self-node-remediation-operator: ''
+              spec:
+                containers:
+                  - resources:
+                      requests:
+                        cpu: 20m
+                        memory: 110Mi
+                    readinessProbe:
+                      httpGet:
+                        path: /readyz
+                        port: 8081
+                      initialDelaySeconds: 5
+                      periodSeconds: 10
+                    name: manager
+                    command:
+                      - /manager
+                    livenessProbe:
+                      httpGet:
+                        path: /healthz
+                        port: 8081
+                      initialDelaySeconds: 15
+                      periodSeconds: 20
+                    env:
+                      - name: MY_NODE_NAME
+                        valueFrom:
+                          fieldRef:
+                            fieldPath: spec.nodeName
+                      - name: SELF_NODE_REMEDIATION_IMAGE
+                        value: 'registry.redhat.io/workload-availability/self-node-remediation-rhel9-operator@sha256:f13f5b22014e8819be39f45e476aef4a67e3645f9d20ad67b10fae9325ae473a'
+                      - name: DEPLOYMENT_NAMESPACE
+                        valueFrom:
+                          fieldRef:
+                            fieldPath: metadata.namespace
+                    securityContext:
+                      allowPrivilegeEscalation: false
+                    ports:
+                      - containerPort: 9443
+                        name: webhook-server
+                        protocol: TCP
+                    image: 'registry.redhat.io/workload-availability/self-node-remediation-rhel9-operator@sha256:f13f5b22014e8819be39f45e476aef4a67e3645f9d20ad67b10fae9325ae473a'
+                    args:
+                      - '--health-probe-bind-address=:8081'
+                      - '--metrics-bind-address=127.0.0.1:8080'
+                      - '--leader-elect'
+                      - '--is-manager'
+                  - args:
+                      - '--secure-listen-address=0.0.0.0:8443'
+                      - '--http2-disable'
+                      - '--upstream=http://127.0.0.1:8080/'
+                      - '--logtostderr=true'
+                      - '--v=0'
+                    image: 'registry.redhat.io/openshift4/ose-kube-rbac-proxy-rhel9@sha256:b488f8b1cda2b5d2c9c9a0b55fcc9e687716f62fb101abea3f44b8fa46f6c814'
+                    name: kube-rbac-proxy
+                    ports:
+                      - containerPort: 8443
+                        name: https
+                        protocol: TCP
+                    resources:
+                      limits:
+                        cpu: 500m
+                        memory: 128Mi
+                      requests:
+                        cpu: 5m
+                        memory: 64Mi
+                    securityContext:
+                      allowPrivilegeEscalation: false
+                      capabilities:
+                        drop:
+                          - ALL
+                priorityClassName: system-cluster-critical
+                securityContext:
+                  runAsNonRoot: false
+                serviceAccountName: self-node-remediation-controller-manager
+                terminationGracePeriodSeconds: 10
+                topologySpreadConstraints:
+                  - labelSelector:
+                      matchLabels:
+                        control-plane: controller-manager
+                        self-node-remediation-operator: ''
+                    maxSkew: 1
+                    topologyKey: kubernetes.io/hostname
+                    whenUnsatisfiable: DoNotSchedule
+      permissions:
+        - rules:
+            - apiGroups:
+                - ''
+                - coordination.k8s.io
+              resources:
+                - configmaps
+                - leases
+              verbs:
+                - get
+                - list
+                - watch
+                - create
+                - update
+                - patch
+                - delete
+            - apiGroups:
+                - ''
+              resources:
+                - events
+              verbs:
+                - create
+                - patch
+          serviceAccountName: self-node-remediation-controller-manager
+    strategy: deployment
+  maintainers:
+    - email: team-dragonfly@redhat.com
+      name: Dragonfly Team
+  description: 'This self node remediation operator is using an alternate mechanism for a node in a cluster to detect its health status and take actions to remediate itself in case of a failure. While not all remediation events can result in the node returning to a healthy state, the operator does allow surviving parts of the cluster to assume the node has reached a safe state so that it’s workloads can be automatically recovered. A prerequisite for the Self Node Remediation operator is a functioning health detection system that implements the external remediation API, such as Node Health Check Operator or Machine Health Check Controller (in OCP or Cluster-API based clusters). Once a node/machine is unhealthy, the detection system will create the SelfNodeRemediation CR, which triggers the Self Node Remediation Operator. For this the configuration of the health detection system needs to refer to a SelfNodeRemediationTemplate CR. Such a template is created by default in the operator''s namespace, for usage in other namespaces it needs to be created manually. The Node Health Check Operator is configured to use Self Node Remediation by default.'
+  replaces: self-node-remediation.v0.10.2
+status:
+  reason: InstallSucceeded
+  cleanup: {}
+  message: install strategy completed with no errors
+  lastUpdateTime: '2025-12-05T17:01:14Z'
+  requirementStatus:
+    - group: operators.coreos.com
+      kind: ClusterServiceVersion
+      message: CSV minKubeVersion (1.25.0) less than server version (v1.33.5)
+      name: self-node-remediation.v0.11.0
+      status: Present
+      version: v1alpha1
+    - group: apiextensions.k8s.io
+      kind: CustomResourceDefinition
+      message: CRD is present and Established condition is true
+      name: selfnoderemediationconfigs.self-node-remediation.medik8s.io
+      status: Present
+      uuid: 3bace76a-9c32-48ad-8fc1-384db7e3a5b3
+      version: v1
+    - group: apiextensions.k8s.io
+      kind: CustomResourceDefinition
+      message: CRD is present and Established condition is true
+      name: selfnoderemediations.self-node-remediation.medik8s.io
+      status: Present
+      uuid: d84c9e78-3bc1-49a0-bb47-6ed87e1555e2
+      version: v1
+    - group: apiextensions.k8s.io
+      kind: CustomResourceDefinition
+      message: CRD is present and Established condition is true
+      name: selfnoderemediationtemplates.self-node-remediation.medik8s.io
+      status: Present
+      uuid: c3bd86d8-f450-4994-9c53-34b4fa87c4a5
+      version: v1
+    - dependents:
+        - group: rbac.authorization.k8s.io
+          kind: PolicyRule
+          message: 'cluster rule:{"verbs":["get","list","watch"],"apiGroups":[""],"resources":["namespaces"]}'
+          status: Satisfied
+          version: v1
+        - group: rbac.authorization.k8s.io
+          kind: PolicyRule
+          message: 'cluster rule:{"verbs":["create","delete","get","list","patch","update","watch"],"apiGroups":[""],"resources":["nodes","secrets"]}'
+          status: Satisfied
+          version: v1
+        - group: rbac.authorization.k8s.io
+          kind: PolicyRule
+          message: 'cluster rule:{"verbs":["delete","deletecollection","get","list","update","watch"],"apiGroups":[""],"resources":["pods"]}'
+          status: Satisfied
+          version: v1
+        - group: rbac.authorization.k8s.io
+          kind: PolicyRule
+          message: 'cluster rule:{"verbs":["create","delete","get","list","patch","update","watch"],"apiGroups":["apps"],"resources":["daemonsets"]}'
+          status: Satisfied
+          version: v1
+        - group: rbac.authorization.k8s.io
+          kind: PolicyRule
+          message: 'cluster rule:{"verbs":["update"],"apiGroups":["apps"],"resources":["daemonsets/finalizers"]}'
+          status: Satisfied
+          version: v1
+        - group: rbac.authorization.k8s.io
+          kind: PolicyRule
+          message: 'cluster rule:{"verbs":["create","delete","get","list","patch","update","watch"],"apiGroups":["machine.openshift.io"],"resources":["machines"]}'
+          status: Satisfied
+          version: v1
+        - group: rbac.authorization.k8s.io
+          kind: PolicyRule
+          message: 'cluster rule:{"verbs":["get","patch","update"],"apiGroups":["machine.openshift.io"],"resources":["machines/status"]}'
+          status: Satisfied
+          version: v1
+        - group: rbac.authorization.k8s.io
+          kind: PolicyRule
+          message: 'cluster rule:{"verbs":["use"],"apiGroups":["security.openshift.io"],"resources":["securitycontextconstraints"],"resourceNames":["privileged"]}'
+          status: Satisfied
+          version: v1
+        - group: rbac.authorization.k8s.io
+          kind: PolicyRule
+          message: 'cluster rule:{"verbs":["create","delete","get","list","patch","update","watch"],"apiGroups":["self-node-remediation.medik8s.io"],"resources":["selfnoderemediationconfigs","selfnoderemediations","selfnoderemediationtemplates"]}'
+          status: Satisfied
+          version: v1
+        - group: rbac.authorization.k8s.io
+          kind: PolicyRule
+          message: 'cluster rule:{"verbs":["update"],"apiGroups":["self-node-remediation.medik8s.io"],"resources":["selfnoderemediationconfigs/finalizers","selfnoderemediations/finalizers","selfnoderemediationtemplates/finalizers"]}'
+          status: Satisfied
+          version: v1
+        - group: rbac.authorization.k8s.io
+          kind: PolicyRule
+          message: 'cluster rule:{"verbs":["get","patch","update"],"apiGroups":["self-node-remediation.medik8s.io"],"resources":["selfnoderemediationconfigs/status","selfnoderemediations/status","selfnoderemediationtemplates/status"]}'
+          status: Satisfied
+          version: v1
+        - group: rbac.authorization.k8s.io
+          kind: PolicyRule
+          message: 'cluster rule:{"verbs":["delete","deletecollection","get","list","update","watch"],"apiGroups":["storage.k8s.io"],"resources":["volumeattachments"]}'
+          status: Satisfied
+          version: v1
+        - group: rbac.authorization.k8s.io
+          kind: PolicyRule
+          message: 'cluster rule:{"verbs":["create"],"apiGroups":["authentication.k8s.io"],"resources":["tokenreviews"]}'
+          status: Satisfied
+          version: v1
+        - group: rbac.authorization.k8s.io
+          kind: PolicyRule
+          message: 'cluster rule:{"verbs":["create"],"apiGroups":["authorization.k8s.io"],"resources":["subjectaccessreviews"]}'
+          status: Satisfied
+          version: v1
+      group: ''
+      kind: ServiceAccount
+      message: ''
+      name: self-node-remediation-controller-manager
+      status: Present
+      version: v1
+  certsLastUpdated: '2025-12-05T16:11:54Z'
+  lastTransitionTime: '2025-12-05T17:01:14Z'
+  conditions:
+    - lastTransitionTime: '2025-12-05T16:11:54Z'
+      lastUpdateTime: '2025-12-05T16:11:54Z'
+      message: 'installing: waiting for deployment self-node-remediation-controller-manager to become ready: deployment "self-node-remediation-controller-manager" not available: Deployment does not have minimum availability.'
+      phase: Installing
+      reason: InstallWaiting
+    - lastTransitionTime: '2025-12-05T16:13:14Z'
+      lastUpdateTime: '2025-12-05T16:13:14Z'
+      message: install strategy completed with no errors
+      phase: Succeeded
+      reason: InstallSucceeded
+    - lastTransitionTime: '2025-12-05T16:31:10Z'
+      lastUpdateTime: '2025-12-05T16:31:10Z'
+      message: 'installing: waiting for deployment self-node-remediation-controller-manager to become ready: deployment "self-node-remediation-controller-manager" not available: Deployment does not have minimum availability.'
+      phase: Failed
+      reason: ComponentUnhealthy
+    - lastTransitionTime: '2025-12-05T16:31:13Z'
+      lastUpdateTime: '2025-12-05T16:31:13Z'
+      message: 'installing: waiting for deployment self-node-remediation-controller-manager to become ready: deployment "self-node-remediation-controller-manager" not available: Deployment does not have minimum availability.'
+      phase: Pending
+      reason: NeedsReinstall
+    - lastTransitionTime: '2025-12-05T16:31:16Z'
+      lastUpdateTime: '2025-12-05T16:31:16Z'
+      message: 'all requirements found, attempting install'
+      phase: InstallReady
+      reason: AllRequirementsMet
+    - lastTransitionTime: '2025-12-05T16:31:17Z'
+      lastUpdateTime: '2025-12-05T16:31:17Z'
+      message: waiting for install components to report healthy
+      phase: Installing
+      reason: InstallSucceeded
+    - lastTransitionTime: '2025-12-05T16:31:17Z'
+      lastUpdateTime: '2025-12-05T16:31:23Z'
+      message: 'installing: waiting for deployment self-node-remediation-controller-manager to become ready: deployment "self-node-remediation-controller-manager" not available: Deployment does not have minimum availability.'
+      phase: Installing
+      reason: InstallWaiting
+    - lastTransitionTime: '2025-12-05T16:31:34Z'
+      lastUpdateTime: '2025-12-05T16:31:34Z'
+      message: install strategy completed with no errors
+      phase: Succeeded
+      reason: InstallSucceeded
+    - lastTransitionTime: '2025-12-05T16:52:33Z'
+      lastUpdateTime: '2025-12-05T16:52:33Z'
+      message: 'installing: waiting for deployment self-node-remediation-controller-manager to become ready: deployment "self-node-remediation-controller-manager" not available: Deployment does not have minimum availability.'
+      phase: Failed
+      reason: ComponentUnhealthy
+    - lastTransitionTime: '2025-12-05T16:52:38Z'
+      lastUpdateTime: '2025-12-05T16:52:38Z'
+      message: 'installing: waiting for deployment self-node-remediation-controller-manager to become ready: deployment "self-node-remediation-controller-manager" not available: Deployment does not have minimum availability.'
+      phase: Pending
+      reason: NeedsReinstall
+    - lastTransitionTime: '2025-12-05T16:52:40Z'
+      lastUpdateTime: '2025-12-05T16:52:40Z'
+      message: 'all requirements found, attempting install'
+      phase: InstallReady
+      reason: AllRequirementsMet
+    - lastTransitionTime: '2025-12-05T16:52:41Z'
+      lastUpdateTime: '2025-12-05T16:52:41Z'
+      message: waiting for install components to report healthy
+      phase: Installing
+      reason: InstallSucceeded
+    - lastTransitionTime: '2025-12-05T16:52:41Z'
+      lastUpdateTime: '2025-12-05T16:52:43Z'
+      message: 'installing: waiting for deployment self-node-remediation-controller-manager to become ready: deployment "self-node-remediation-controller-manager" not available: Deployment does not have minimum availability.'
+      phase: Installing
+      reason: InstallWaiting
+    - lastTransitionTime: '2025-12-05T16:52:55Z'
+      lastUpdateTime: '2025-12-05T16:52:55Z'
+      message: install strategy completed with no errors
+      phase: Succeeded
+      reason: InstallSucceeded
+    - lastTransitionTime: '2025-12-05T17:00:58Z'
+      lastUpdateTime: '2025-12-05T17:00:58Z'
+      message: 'installing: waiting for deployment self-node-remediation-controller-manager to become ready: deployment "self-node-remediation-controller-manager" not available: Deployment does not have minimum availability.'
+      phase: Failed
+      reason: ComponentUnhealthy
+    - lastTransitionTime: '2025-12-05T17:01:00Z'
+      lastUpdateTime: '2025-12-05T17:01:00Z'
+      message: 'installing: waiting for deployment self-node-remediation-controller-manager to become ready: deployment "self-node-remediation-controller-manager" not available: Deployment does not have minimum availability.'
+      phase: Pending
+      reason: NeedsReinstall
+    - lastTransitionTime: '2025-12-05T17:01:00Z'
+      lastUpdateTime: '2025-12-05T17:01:00Z'
+      message: 'all requirements found, attempting install'
+      phase: InstallReady
+      reason: AllRequirementsMet
+    - lastTransitionTime: '2025-12-05T17:01:01Z'
+      lastUpdateTime: '2025-12-05T17:01:01Z'
+      message: waiting for install components to report healthy
+      phase: Installing
+      reason: InstallSucceeded
+    - lastTransitionTime: '2025-12-05T17:01:01Z'
+      lastUpdateTime: '2025-12-05T17:01:03Z'
+      message: 'installing: waiting for deployment self-node-remediation-controller-manager to become ready: deployment "self-node-remediation-controller-manager" not available: Deployment does not have minimum availability.'
+      phase: Installing
+      reason: InstallWaiting
+    - lastTransitionTime: '2025-12-05T17:01:14Z'
+      lastUpdateTime: '2025-12-05T17:01:14Z'
+      message: install strategy completed with no errors
+      phase: Succeeded
+      reason: InstallSucceeded
+  phase: Succeeded
+  certsRotateAt: '2027-12-04T16:11:54Z'

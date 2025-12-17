@@ -1,0 +1,35 @@
+# En el Restore en el cluster de DESTINO
+apiVersion: velero.io/v1
+kind: Restore
+metadata:
+  name: restore-fedora07
+  namespace: oadp-user1
+  annotations:
+    # ESTA ANOTACIÓN INDICA EL CONFIGMAP DE MAPEO
+    # restore.spec.velero.io/storage-class-selectors: 'storage-class-map-config'
+spec:
+  backupName: backup-fedora-bronze-gerbil-34-4
+  # ... (resto de tu spec)
+  restorePVs: false
+  hooks:
+    resources:
+      - name: remove-pvc-selector
+        includedResources:
+          - persistentvolumeclaims # Aplicar a todos los PVCs
+        preHooks: # Aplicar antes de crear el recurso
+          - exec:
+              command:
+                - /bin/sh
+                - -c
+                - >
+                  kubectl patch persistentvolumeclaim ${RESTORE_RESOURCE} --namespace ${RESTORE_NAMESPACE}
+                  --type json --patch "$(cat /var/lib/velero/pvc-transform.json)"
+              container: velero
+              onFail: Continue
+              resource: persistentvolumeclaims
+              target: host
+        configMaps:
+          - name: pvc-selector-transform # Nombre del ConfigMap creado en el paso A
+            items:
+              - key: pvc-transform.json
+                path: /var/lib/velero/pvc-transform.json

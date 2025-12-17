@@ -1,0 +1,176 @@
+apiVersion: nmstate.io/v1
+kind: NodeNetworkConfigurationPolicy
+metadata:
+  name: ovs-br1-vlan-trunk
+spec:
+  nodeSelector:
+    node-role.kubernetes.io/worker: ''
+  desiredState:
+    interfaces:
+    - name: ovs-br1
+      description: |-
+        A dedicated OVS bridge with bond1 as a port
+      type: ovs-bridge
+      state: up
+      bridge:
+        allow-extra-patch-ports: true
+        options:
+          stp: false
+        port:
+        - name: bond1
+    ovn:
+      bridge-mappings:
+      - localnet: vlan-100
+        bridge: ovs-br1
+        state: present
+      - localnet: vlan-200
+        bridge: ovs-br1
+        state: present
+      - localnet: vlan-300
+        bridge: ovs-br1
+        state: present
+      - localnet: vlan-400
+        bridge: ovs-br1
+        state: present
+      - localnet: vlan-500
+        bridge: ovs-br1
+        state: present
+      - localnet: vlan-600
+        bridge: ovs-br1
+        state: present
+      - localnet: vlan-700
+        bridge: ovs-br1
+        state: present
+---
+apiVersion: k8s.cni.cncf.io/v1
+kind: NetworkAttachmentDefinition
+metadata:
+  annotations:
+    description: VLAN 100 connection for VMs
+  name: vlan-100
+  namespace: default
+spec:
+  config: |-
+    {
+      "cniVersion": "0.3.1",
+      "name": "vlan-100",
+      "type": "ovn-k8s-cni-overlay",
+      "topology": "localnet",
+      "netAttachDefName": "default/vlan-100",
+      "vlanID": 100,
+      "ipam": {}
+    }
+---
+apiVersion: k8s.cni.cncf.io/v1
+kind: NetworkAttachmentDefinition
+metadata:
+  annotations:
+    description: VLAN 200 connection for VMs
+  name: vlan-200
+  namespace: default
+spec:
+  config: |-
+    {
+      "cniVersion": "0.3.1",
+      "name": "vlan-200",
+      "type": "ovn-k8s-cni-overlay",
+      "topology": "localnet",
+      "netAttachDefName": "default/vlan-200",
+      "vlanID": 200,
+      "ipam": {}
+    }
+---
+apiVersion: k8s.cni.cncf.io/v1
+kind: NetworkAttachmentDefinition
+metadata:
+  annotations:
+    description: VLAN 300 connection for VMs
+  name: vlan-300
+  namespace: default
+spec:
+  config: |-
+    {
+      "cniVersion": "0.3.1",
+      "name": "vlan-300",
+      "type": "ovn-k8s-cni-overlay",
+      "topology": "localnet",
+      "netAttachDefName": "default/vlan-300",
+      "vlanID": 300,
+      "ipam": {}
+    }
+---
+apiVersion: k8s.cni.cncf.io/v1
+kind: NetworkAttachmentDefinition
+metadata:
+  annotations:
+    description: VLAN 400 connection for VMs
+  name: vlan-400
+  namespace: default
+spec:
+  config: |-
+    {
+      "cniVersion": "0.3.1",
+      "name": "vlan-400",
+      "type": "ovn-k8s-cni-overlay",
+      "topology": "localnet",
+      "netAttachDefName": "default/vlan-400",
+      "vlanID": 400,
+      "ipam": {}
+    }
+---
+apiVersion: k8s.cni.cncf.io/v1
+kind: NetworkAttachmentDefinition
+metadata:
+  annotations:
+    description: VLAN 500 connection for VMs
+  name: vlan-500
+  namespace: default
+spec:
+  config: |-
+    {
+      "cniVersion": "0.3.1",
+      "name": "vlan-500",
+      "type": "ovn-k8s-cni-overlay",
+      "topology": "localnet",
+      "netAttachDefName": "default/vlan-500",
+      "vlanID": 500,
+      "ipam": {}
+    }
+---
+apiVersion: k8s.cni.cncf.io/v1
+kind: NetworkAttachmentDefinition
+metadata:
+  annotations:
+    description: VLAN 600 connection for VMs
+  name: vlan-600
+  namespace: default
+spec:
+  config: |-
+    {
+      "cniVersion": "0.3.1",
+      "name": "vlan-600",
+      "type": "ovn-k8s-cni-overlay",
+      "topology": "localnet",
+      "netAttachDefName": "default/vlan-600",
+      "vlanID": 600,
+      "ipam": {}
+    }
+---
+apiVersion: k8s.cni.cncf.io/v1
+kind: NetworkAttachmentDefinition
+metadata:
+  annotations:
+    description: VLAN 700 connection for VMs
+  name: vlan-700
+  namespace: default
+spec:
+  config: |-
+    {
+      "cniVersion": "0.3.1",
+      "name": "vlan-700",
+      "type": "ovn-k8s-cni-overlay",
+      "topology": "localnet",
+      "netAttachDefName": "default/vlan-700",
+      "vlanID": 700,
+      "ipam": {}
+    }

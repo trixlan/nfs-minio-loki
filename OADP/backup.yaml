@@ -1,0 +1,23 @@
+---
+apiVersion: velero.io/v1
+kind: Backup
+metadata:
+  name: backup-rhel8-cyan-hummingbird-72
+  namespace: oadp-user1     # Namespace donde esta instalado OADP
+  labels:
+    velero.io/storage-location: default
+spec:
+  defaultVolumesToFsBackup: false
+  orLabelSelectors:
+  - matchLabels:
+      app: rhel8-cyan-hummingbird-72                   # Nombre de la VM
+  - matchLabels:
+      vm.kubevirt.io/name: rhel8-cyan-hummingbird-72   # Nombre de la VM
+  csiSnapshotTimeout: 10m0s
+  ttl: 720h0m0s
+  itemOperationTimeout: 4h0m0s
+  storageLocation: oadp-dpa-1         # Nombre del BackupStorageLocation en OADP
+  hooks: {}
+  includedNamespaces:
+  - vm-linux      # Namespace donde se encuentra la VM
+  snapshotMoveData: true

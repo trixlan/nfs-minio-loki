@@ -1,0 +1,147 @@
+﻿apiVersion: lvm.topolvm.io/v1alpha1
+kind: LVMCluster
+metadata:
+  creationTimestamp: '2025-11-15T16:31:28Z'
+  finalizers:
+    - lvmcluster.topolvm.io
+  generation: 1
+  managedFields:
+    - apiVersion: lvm.topolvm.io/v1alpha1
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:spec':
+          .: {}
+          'f:storage':
+            .: {}
+            'f:deviceClasses': {}
+      manager: Mozilla
+      operation: Update
+      time: '2025-11-15T16:31:28Z'
+    - apiVersion: lvm.topolvm.io/v1alpha1
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:metadata':
+          'f:finalizers':
+            .: {}
+            'v:"lvmcluster.topolvm.io"': {}
+      manager: lvms
+      operation: Update
+      time: '2025-11-15T16:31:28Z'
+    - apiVersion: lvm.topolvm.io/v1alpha1
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:status':
+          .: {}
+          'f:conditions': {}
+          'f:deviceClassStatuses': {}
+          'f:ready': {}
+          'f:state': {}
+      manager: lvms
+      operation: Update
+      subresource: status
+      time: '2025-12-05T22:40:17Z'
+  name: my-lvmcluster
+  namespace: openshift-storage
+  resourceVersion: '14612627'
+  uid: df49a9d3-13b5-4ecb-ad37-43c9b3bda4c3
+spec:
+  storage:
+    deviceClasses:
+      - deviceSelector:
+          paths:
+            - '/dev/disk/by-path/pci-0000:01:00.0-scsi-0:0:4:0'
+            - '/dev/disk/by-path/pci-0000:01:00.0-scsi-0:0:5:0'
+        fstype: xfs
+        name: vg1
+        thinPoolConfig:
+          chunkSizeCalculationPolicy: Static
+          metadataSizeCalculationPolicy: Host
+          name: thin-pool-1
+          overprovisionRatio: 10
+          sizePercent: 90
+status:
+  conditions:
+    - lastTransitionTime: '2025-12-05T22:40:17Z'
+      message: Reconciliation is complete and all the resources are available
+      reason: ResourcesAvailable
+      status: 'True'
+      type: ResourcesAvailable
+    - lastTransitionTime: '2025-12-05T22:40:17Z'
+      message: All the VGs are ready
+      reason: VGsReady
+      status: 'True'
+      type: VolumeGroupsReady
+  deviceClassStatuses:
+    - name: vg1
+      nodeStatus:
+        - deviceDiscoveryPolicy: Preconfigured
+          devices:
+            - /dev/sda
+            - /dev/sdc
+          excluded:
+            - name: /dev/loop0
+              reasons:
+                - /dev/loop0 cannot be read-only
+                - /dev/loop0 has an invalid filesystem signature (erofs) and cannot be used
+                - /dev/loop0 is not part of the device selector or could not be resolved via symlink resolution
+            - name: /dev/loop1
+              reasons:
+                - /dev/loop1 is an unusable loopback device
+                - /dev/loop1 is not part of the device selector or could not be resolved via symlink resolution
+            - name: /dev/loop2
+              reasons:
+                - /dev/loop2 is an unusable loopback device
+                - /dev/loop2 is not part of the device selector or could not be resolved via symlink resolution
+            - name: /dev/loop3
+              reasons:
+                - /dev/loop3 is an unusable loopback device
+                - /dev/loop3 is not part of the device selector or could not be resolved via symlink resolution
+            - name: /dev/loop4
+              reasons:
+                - /dev/loop4 is an unusable loopback device
+                - /dev/loop4 is not part of the device selector or could not be resolved via symlink resolution
+            - name: /dev/loop5
+              reasons:
+                - /dev/loop5 is an unusable loopback device
+                - /dev/loop5 is not part of the device selector or could not be resolved via symlink resolution
+            - name: /dev/loop6
+              reasons:
+                - /dev/loop6 is an unusable loopback device
+                - /dev/loop6 is not part of the device selector or could not be resolved via symlink resolution
+            - name: /dev/loop7
+              reasons:
+                - /dev/loop7 is an unusable loopback device
+                - /dev/loop7 is not part of the device selector or could not be resolved via symlink resolution
+            - name: /dev/sdb
+              reasons:
+                - /dev/sdb is not part of the device selector or could not be resolved via symlink resolution
+            - name: /dev/sdd
+              reasons:
+                - /dev/sdd has children block devices and could not be considered
+                - /dev/sdd is not part of the device selector or could not be resolved via symlink resolution
+            - name: /dev/sdd1
+              reasons:
+                - /dev/sdd1 has an invalid partition label "BIOS-BOOT"
+                - /dev/sdd1 is not part of the device selector or could not be resolved via symlink resolution
+            - name: /dev/sdd2
+              reasons:
+                - /dev/sdd2 has an invalid filesystem signature (vfat) and cannot be used
+                - /dev/sdd2 is not part of the device selector or could not be resolved via symlink resolution
+            - name: /dev/sdd3
+              reasons:
+                - /dev/sdd3 has an invalid filesystem signature (ext4) and cannot be used
+                - /dev/sdd3 has an invalid partition label "boot"
+                - /dev/sdd3 is not part of the device selector or could not be resolved via symlink resolution
+            - name: /dev/sdd4
+              reasons:
+                - /dev/sdd4 has an invalid filesystem signature (xfs) and cannot be used
+                - /dev/sdd4 is not part of the device selector or could not be resolved via symlink resolution
+            - name: /dev/sde
+              reasons:
+                - /dev/sde has an invalid filesystem signature (zfs_member) and cannot be used
+                - /dev/sde is not part of the device selector or could not be resolved via symlink resolution
+          name: vg1
+          node: apps01.pemex.pmx.com
+          status: Ready
+  ready: true
+  state: Ready

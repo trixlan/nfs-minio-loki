@@ -1,0 +1,19 @@
+apiVersion: nmstate.io/v1
+kind: NodeNetworkConfigurationPolicy
+metadata:
+  name: bond1
+spec:
+  desiredState:
+    interfaces:
+    - name: bond1
+      description: bond1 for VM traffic and VLANs
+      type: bond
+      state: up
+      ipv4:
+        dhcp: false 
+        enabled: false 
+      link-aggregation:
+        mode: 802.3ad
+        port: 
+        - ens3f0
+        - ens3f1

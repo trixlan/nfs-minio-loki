@@ -1,0 +1,88 @@
+﻿apiVersion: oadp.openshift.io/v1alpha1
+kind: DataProtectionApplication
+metadata:
+  creationTimestamp: '2025-11-21T00:09:44Z'
+  generation: 14
+  managedFields:
+    - apiVersion: oadp.openshift.io/v1alpha1
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:status':
+          .: {}
+          'f:conditions': {}
+      manager: manager
+      operation: Update
+      subresource: status
+      time: '2025-11-21T00:12:29Z'
+    - apiVersion: oadp.openshift.io/v1alpha1
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:spec':
+          .: {}
+          'f:backupLocations': {}
+          'f:configuration':
+            .: {}
+            'f:nodeAgent':
+              .: {}
+              'f:enable': {}
+              'f:uploaderType': {}
+            'f:velero':
+              .: {}
+              'f:defaultPlugins': {}
+              'f:defaultSnapshotMoveData': {}
+              'f:disableFsBackup': {}
+              'f:featureFlags': {}
+          'f:logFormat': {}
+          'f:snapshotLocations': {}
+      manager: Mozilla
+      operation: Update
+      time: '2025-11-25T21:56:37Z'
+  name: oadp
+  namespace: openshift-adp
+  resourceVersion: '14490813'
+  uid: 835e4c6d-eccc-461e-9c35-96050a1d663a
+spec:
+  backupLocations:
+    - velero:
+        config:
+          insecureSkipTLSVerify: 'true'
+          profile: default
+          region: localstorage
+          s3ForcePathStyle: 'true'
+          s3Url: 'https://s3-openshift-storage.apps.azc-rh.pemex.pmx.com'
+        credential:
+          key: cloud
+          name: credentials-velero
+        default: true
+        objectStorage:
+          bucket: remotos-40cd263c-90f9-4610-9726-0de33380c547
+          prefix: oadp-backups
+        provider: aws
+  configuration:
+    nodeAgent:
+      enable: true
+      uploaderType: kopia
+    velero:
+      defaultPlugins:
+        - openshift
+        - aws
+        - csi
+        - kubevirt
+      defaultSnapshotMoveData: true
+      disableFsBackup: false
+      featureFlags:
+        - EnableCSI
+  logFormat: text
+  snapshotLocations:
+    - velero:
+        config:
+          profile: default
+          region: localstorage
+        provider: aws
+status:
+  conditions:
+    - lastTransitionTime: '2025-11-21T00:12:29Z'
+      message: Reconcile complete
+      reason: Complete
+      status: 'True'
+      type: Reconciled

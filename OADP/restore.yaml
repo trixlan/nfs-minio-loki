@@ -1,0 +1,16 @@
+---
+apiVersion: velero.io/v1
+kind: Restore
+metadata:
+  name: restore-fedora02
+  namespace: oadp-user1       # Namespace donde esta instalado OADP
+spec:
+  backupName: backup-fedora02 # Nombre del backup
+  includedResources: []
+  excludedResources:
+  - nodes
+  - events
+  - events.events.k8s.io
+  - backups.velero.io
+  - restores.velero.io
+  restorePVs: false

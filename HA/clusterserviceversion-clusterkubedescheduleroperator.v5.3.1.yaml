@@ -1,0 +1,761 @@
+﻿apiVersion: operators.coreos.com/v1alpha1
+kind: ClusterServiceVersion
+metadata:
+  annotations:
+    olm.skipRange: '>=5.2.0 <5.3.1'
+    features.operators.openshift.io/token-auth-azure: 'false'
+    operators.openshift.io/valid-subscription: '["OpenShift Kubernetes Engine", "OpenShift Container Platform", "OpenShift Platform Plus"]'
+    features.operators.openshift.io/token-auth-gcp: 'false'
+    certified: 'false'
+    olm.targetNamespaces: openshift-kube-descheduler-operator
+    operatorframework.io/properties: '{"properties":[{"type":"olm.gvk","value":{"group":"operator.openshift.io","kind":"KubeDescheduler","version":"v1"}},{"type":"olm.package","value":{"packageName":"cluster-kube-descheduler-operator","version":"5.3.1"}}]}'
+    console.openshift.io/operator-monitoring-default: 'true'
+    repository: 'https://github.com/openshift/cluster-kube-descheduler-operator'
+    features.operators.openshift.io/token-auth-aws: 'false'
+    support: 'Red Hat, Inc.'
+    operatorframework.io/cluster-monitoring: 'true'
+    alm-examples: |
+      [
+        {
+          "apiVersion": "operator.openshift.io/v1",
+          "kind": "KubeDescheduler",
+          "metadata": {
+            "name": "cluster",
+            "namespace": "openshift-kube-descheduler-operator"
+          },
+          "spec": {
+            "deschedulingIntervalSeconds": 3600,
+            "managementState": "Managed",
+            "mode": "Predictive",
+            "profiles": ["AffinityAndTaints"]
+          }
+        }
+      ]
+    capabilities: Basic Install
+    features.operators.openshift.io/csi: 'false'
+    features.operators.openshift.io/fips-compliant: 'true'
+    features.operators.openshift.io/cnf: 'false'
+    olm.operatorNamespace: openshift-kube-descheduler-operator
+    containerImage: 'registry.redhat.io/kube-descheduler-operator/kube-descheduler-rhel9-operator@sha256:a4280076232eb36193781d6b25561fba909061efd03a02c114512506f6c3c775'
+    createdAt: 2025/12/04
+    features.operators.openshift.io/cni: 'false'
+    categories: OpenShift Optional
+    features.operators.openshift.io/proxy-aware: 'false'
+    operatorframework.io/suggested-namespace: openshift-kube-descheduler-operator
+    description: An operator to run descheduler in Openshift cluster.
+    olm.operatorGroup: openshift-kube-descheduler-operator-brdrl
+    features.operators.openshift.io/disconnected: 'true'
+    features.operators.openshift.io/tls-profiles: 'false'
+  resourceVersion: '31346071'
+  name: clusterkubedescheduleroperator.v5.3.1
+  uid: 4700fb28-2358-430a-8001-c8157346ffbf
+  creationTimestamp: '2025-12-05T16:37:44Z'
+  generation: 1
+  managedFields:
+    - apiVersion: operators.coreos.com/v1alpha1
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:metadata':
+          'f:annotations':
+            'f:features.operators.openshift.io/csi': {}
+            'f:features.operators.openshift.io/token-auth-aws': {}
+            'f:features.operators.openshift.io/cnf': {}
+            'f:features.operators.openshift.io/cni': {}
+            'f:createdAt': {}
+            'f:features.operators.openshift.io/proxy-aware': {}
+            'f:alm-examples': {}
+            'f:description': {}
+            'f:capabilities': {}
+            'f:features.operators.openshift.io/fips-compliant': {}
+            'f:olm.skipRange': {}
+            .: {}
+            'f:operators.openshift.io/valid-subscription': {}
+            'f:containerImage': {}
+            'f:categories': {}
+            'f:operatorframework.io/suggested-namespace': {}
+            'f:features.operators.openshift.io/disconnected': {}
+            'f:features.operators.openshift.io/tls-profiles': {}
+            'f:certified': {}
+            'f:operatorframework.io/properties': {}
+            'f:features.operators.openshift.io/token-auth-azure': {}
+            'f:features.operators.openshift.io/token-auth-gcp': {}
+            'f:support': {}
+            'f:operatorframework.io/cluster-monitoring': {}
+            'f:console.openshift.io/operator-monitoring-default': {}
+            'f:repository': {}
+          'f:labels':
+            .: {}
+            'f:olm.managed': {}
+            'f:operatorframework.io/arch.amd64': {}
+            'f:operatorframework.io/arch.arm64': {}
+            'f:operatorframework.io/arch.ppc64le': {}
+            'f:operatorframework.io/arch.s390x': {}
+        'f:spec':
+          'f:skips': {}
+          'f:version': {}
+          'f:maturity': {}
+          'f:provider':
+            .: {}
+            'f:name': {}
+          'f:links': {}
+          'f:install':
+            .: {}
+            'f:spec':
+              .: {}
+              'f:clusterPermissions': {}
+              'f:deployments': {}
+            'f:strategy': {}
+          'f:maintainers': {}
+          'f:description': {}
+          'f:installModes': {}
+          'f:minKubeVersion': {}
+          'f:icon': {}
+          'f:customresourcedefinitions':
+            .: {}
+            'f:owned': {}
+          .: {}
+          'f:relatedImages': {}
+          'f:cleanup':
+            .: {}
+            'f:enabled': {}
+          'f:apiservicedefinitions': {}
+          'f:replaces': {}
+          'f:labels':
+            .: {}
+            'f:olm-owner-enterprise-app': {}
+            'f:olm-status-descriptors': {}
+          'f:displayName': {}
+          'f:keywords': {}
+      manager: catalog
+      operation: Update
+      time: '2025-12-05T16:37:44Z'
+    - apiVersion: operators.coreos.com/v1alpha1
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:metadata':
+          'f:annotations':
+            'f:olm.operatorGroup': {}
+            'f:olm.operatorNamespace': {}
+            'f:olm.targetNamespaces': {}
+          'f:finalizers':
+            .: {}
+            'v:"operators.coreos.com/csv-cleanup"': {}
+          'f:labels':
+            'f:operators.coreos.com/cluster-kube-descheduler-operator.openshift-kube-descheduler-op': {}
+      manager: olm
+      operation: Update
+      time: '2025-12-05T16:37:46Z'
+    - apiVersion: operators.coreos.com/v1alpha1
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:status':
+          'f:lastUpdateTime': {}
+          'f:requirementStatus': {}
+          'f:phase': {}
+          'f:lastTransitionTime': {}
+          'f:conditions': {}
+          .: {}
+          'f:cleanup': {}
+          'f:message': {}
+          'f:reason': {}
+      manager: olm
+      operation: Update
+      subresource: status
+      time: '2025-12-05T17:00:53Z'
+  namespace: openshift-kube-descheduler-operator
+  finalizers:
+    - operators.coreos.com/csv-cleanup
+  labels:
+    olm.managed: 'true'
+    operatorframework.io/arch.amd64: supported
+    operatorframework.io/arch.arm64: supported
+    operatorframework.io/arch.ppc64le: supported
+    operatorframework.io/arch.s390x: supported
+    operators.coreos.com/cluster-kube-descheduler-operator.openshift-kube-descheduler-op: ''
+spec:
+  customresourcedefinitions:
+    owned:
+      - description: KubeDescheduler is the Schema for the deschedulers API
+        displayName: Kube Descheduler
+        kind: KubeDescheduler
+        name: kubedeschedulers.operator.openshift.io
+        version: v1
+  relatedImages:
+    - image: 'registry.redhat.io/kube-descheduler-operator/descheduler-rhel9@sha256:e9019ca15608d3d48a68b97283ca07db1260bb92bd81a500f7d987a485cd7a1e'
+      name: descheduler-operand
+    - image: 'registry.redhat.io/kube-descheduler-operator/kube-descheduler-rhel9-operator@sha256:a4280076232eb36193781d6b25561fba909061efd03a02c114512506f6c3c775'
+      name: descheduler-operator
+  cleanup:
+    enabled: false
+  apiservicedefinitions: {}
+  keywords:
+    - scheduling
+    - descheduler
+    - workload
+  displayName: Kube Descheduler Operator
+  provider:
+    name: 'Red Hat, Inc.'
+  maturity: beta
+  skips:
+    - clusterkubedescheduleroperator.v5.0.1
+    - clusterkubedescheduleroperator.v5.0.2
+    - clusterkubedescheduleroperator.v5.0.3
+    - clusterkubedescheduleroperator.v5.0.4
+    - clusterkubedescheduleroperator.v5.0.5
+    - clusterkubedescheduleroperator.v5.0.6
+    - clusterkubedescheduleroperator.v5.1.0
+    - clusterkubedescheduleroperator.v5.1.1
+    - clusterkubedescheduleroperator.v5.1.2
+    - clusterkubedescheduleroperator.v5.1.3
+    - clusterkubedescheduleroperator.v5.1.4
+    - clusterkubedescheduleroperator.v5.1.5
+    - clusterkubedescheduleroperator.v5.1.6
+    - clusterkubedescheduleroperator.v5.2.0
+    - clusterkubedescheduleroperator.v5.2.1
+    - clusterkubedescheduleroperator.v5.2.2
+    - clusterkubedescheduleroperator.v5.2.3
+    - clusterkubedescheduleroperator.v5.2.4
+    - clusterkubedescheduleroperator.v5.2.5
+    - clusterkubedescheduleroperator.v5.2.6
+    - clusterkubedescheduleroperator.v5.3.0
+  installModes:
+    - supported: true
+      type: OwnNamespace
+    - supported: true
+      type: SingleNamespace
+    - supported: false
+      type: MultiNamespace
+    - supported: false
+      type: AllNamespaces
+  version: 5.3.1
+  icon:
+    - base64data: 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
+      mediatype: image/png
+  minKubeVersion: 1.33.0
+  links:
+    - name: Source Code
+      url: 'https://github.com/openshift/cluster-kube-descheduler-operator'
+  install:
+    spec:
+      clusterPermissions:
+        - rules:
+            - apiGroups:
+                - config.openshift.io
+              resources:
+                - schedulers
+              verbs:
+                - get
+                - watch
+                - list
+            - apiGroups:
+                - monitoring.coreos.com
+              resources:
+                - servicemonitors
+                - prometheusrules
+              verbs:
+                - get
+                - watch
+                - list
+                - create
+                - update
+                - patch
+                - delete
+                - deletecollection
+            - apiGroups:
+                - monitoring.coreos.com
+              resourceNames:
+                - k8s
+              resources:
+                - prometheuses/api
+              verbs:
+                - get
+                - create
+                - update
+            - apiGroups:
+                - operator.openshift.io
+              resources:
+                - kubedeschedulers
+                - kubedeschedulers/status
+              verbs:
+                - get
+                - watch
+                - list
+                - create
+                - update
+                - patch
+                - delete
+                - deletecollection
+            - apiGroups:
+                - ''
+              resources:
+                - services
+                - configmaps
+                - secrets
+                - events
+                - serviceaccounts
+              verbs:
+                - get
+                - watch
+                - list
+                - create
+                - update
+                - patch
+                - delete
+                - deletecollection
+            - apiGroups:
+                - ''
+              resources:
+                - namespaces
+                - pods
+              verbs:
+                - get
+                - watch
+                - list
+            - apiGroups:
+                - ''
+              resources:
+                - nodes
+              verbs:
+                - get
+                - watch
+                - list
+                - patch
+                - update
+            - apiGroups:
+                - ''
+              resources:
+                - pods/eviction
+              verbs:
+                - create
+            - apiGroups:
+                - rbac.authorization.k8s.io
+              resources:
+                - clusterroles
+                - clusterrolebindings
+                - roles
+                - rolebindings
+              verbs:
+                - get
+                - watch
+                - list
+                - create
+                - update
+                - patch
+                - delete
+                - deletecollection
+            - apiGroups:
+                - scheduling.k8s.io
+              resources:
+                - priorityclasses
+              verbs:
+                - get
+                - watch
+                - list
+            - apiGroups:
+                - policy
+              resources:
+                - poddisruptionbudgets
+              verbs:
+                - get
+                - watch
+                - list
+            - apiGroups:
+                - apps
+              resources:
+                - replicasets
+              verbs:
+                - get
+                - watch
+                - list
+            - apiGroups:
+                - apps
+              resources:
+                - deployments
+                - deployments/scale
+              verbs:
+                - get
+                - watch
+                - list
+                - create
+                - update
+                - patch
+                - delete
+                - deletecollection
+            - apiGroups:
+                - coordination.k8s.io
+              resources:
+                - leases
+              verbs:
+                - get
+                - watch
+                - list
+                - create
+                - update
+                - patch
+                - delete
+            - apiGroups:
+                - events.k8s.io
+              resources:
+                - events
+              verbs:
+                - get
+                - watch
+                - list
+                - create
+                - update
+                - patch
+                - delete
+            - apiGroups:
+                - config.openshift.io
+              resources:
+                - infrastructures
+                - apiservers
+              verbs:
+                - get
+                - watch
+                - list
+            - apiGroups:
+                - route.openshift.io
+              resources:
+                - routes
+              verbs:
+                - get
+                - watch
+                - list
+            - apiGroups:
+                - ''
+              resources:
+                - endpoints
+              verbs:
+                - get
+                - watch
+                - list
+            - apiGroups:
+                - admissionregistration.k8s.io
+              resources:
+                - validatingadmissionpolicies
+                - validatingadmissionpolicybindings
+              verbs:
+                - get
+                - watch
+                - list
+                - create
+                - update
+                - patch
+                - delete
+                - deletecollection
+          serviceAccountName: openshift-descheduler
+      deployments:
+        - name: descheduler-operator
+          spec:
+            replicas: 1
+            selector:
+              matchLabels:
+                name: descheduler-operator
+            strategy: {}
+            template:
+              metadata:
+                creationTimestamp: null
+                labels:
+                  name: descheduler-operator
+              spec:
+                containers:
+                  - resources:
+                      requests:
+                        cpu: 10m
+                        memory: 50Mi
+                    name: descheduler-operator
+                    command:
+                      - cluster-kube-descheduler-operator
+                    env:
+                      - name: OPERATOR_POD_NAMESPACE
+                        valueFrom:
+                          fieldRef:
+                            fieldPath: metadata.namespace
+                      - name: OPERAND_NAMESPACE
+                        valueFrom:
+                          fieldRef:
+                            fieldPath: metadata.namespace
+                      - name: RELATED_IMAGE_OPERAND_IMAGE
+                        value: 'registry.redhat.io/kube-descheduler-operator/descheduler-rhel9@sha256:e9019ca15608d3d48a68b97283ca07db1260bb92bd81a500f7d987a485cd7a1e'
+                      - name: RELATED_IMAGE_SOFTTAINTER_IMAGE
+                        value: 'registry.redhat.io/kube-descheduler-operator/kube-descheduler-rhel9-operator@sha256:a4280076232eb36193781d6b25561fba909061efd03a02c114512506f6c3c775'
+                      - name: OPERAND_VERSION
+                        value: 5.3.1
+                    securityContext:
+                      allowPrivilegeEscalation: false
+                      capabilities:
+                        drop:
+                          - ALL
+                      readOnlyRootFilesystem: true
+                    ports:
+                      - containerPort: 60000
+                        name: metrics
+                        protocol: TCP
+                    imagePullPolicy: Always
+                    volumeMounts:
+                      - mountPath: /tmp
+                        name: tmp
+                    image: 'registry.redhat.io/kube-descheduler-operator/kube-descheduler-rhel9-operator@sha256:a4280076232eb36193781d6b25561fba909061efd03a02c114512506f6c3c775'
+                    args:
+                      - operator
+                securityContext:
+                  runAsNonRoot: true
+                  seccompProfile:
+                    type: RuntimeDefault
+                serviceAccountName: openshift-descheduler
+                volumes:
+                  - emptyDir: {}
+                    name: tmp
+    strategy: deployment
+  maintainers:
+    - email: support@redhat.com
+      name: Red Hat
+  description: |
+    The Kube Descheduler Operator provides the ability to evict a running pod so that the pod can be rescheduled onto a more suitable node.
+
+    There are several situations where descheduling can benefit your cluster:
+
+    * Nodes are underutilized or overutilized.
+    * Pod and node affinity requirements, such as taints or labels, have changed and the original scheduling decisions are no longer appropriate for certain nodes.
+    * Node failure requires pods to be moved.
+    * New nodes are added to clusters.
+
+    ## Descheduler Profiles
+
+    Once the operator is installed, you can configure one or more profiles to identify pods to evict. The scheduler will schedule the replacement of the evicted pods.
+
+    The following profiles are available:
+
+    * AffinityAndTaints
+    * TopologyAndDuplicates
+    * SoftTopologyAndDuplicates
+    * LifecycleAndUtilization
+    * LongLifecycle
+    * CompactAndScale
+    * EvictPodsWithPVC
+    * EvictPodsWithLocalStorage
+
+    These profiles are documented in detail in the [descheduler operator README](https://github.com/openshift/cluster-kube-descheduler-operator#profiles).
+
+    ## Additional Parameters
+
+    In addition to the profiles, the following parameters can be configured:
+
+    * `deschedulingIntervalSeconds` - Set the number of seconds between descheduler runs. A value of `0` in this field runs the descheduler once and exits.
+    * `mode` - Configures the descheduler to either evict pods or to simulate the eviction.
+    * `profileCustomizations` - Allows certain profile parameters to be tweaked, such as `podLifetime` (see [README](https://github.com/openshift/cluster-kube-descheduler-operator#profile-customizations) for more info).
+    * `evictionLimits` - Restricts the number of evictions during each descheduling run.
+  replaces: clusterkubedescheduleroperator.v5.2.0
+  labels:
+    olm-owner-enterprise-app: cluster-kube-descheduler-operator
+    olm-status-descriptors: cluster-kube-descheduler-operator.v5.3.1
+status:
+  cleanup: {}
+  conditions:
+    - lastTransitionTime: '2025-12-05T16:37:46Z'
+      lastUpdateTime: '2025-12-05T16:37:46Z'
+      message: requirements not yet checked
+      phase: Pending
+      reason: RequirementsUnknown
+    - lastTransitionTime: '2025-12-05T16:37:46Z'
+      lastUpdateTime: '2025-12-05T16:37:46Z'
+      message: 'all requirements found, attempting install'
+      phase: InstallReady
+      reason: AllRequirementsMet
+    - lastTransitionTime: '2025-12-05T16:37:46Z'
+      lastUpdateTime: '2025-12-05T16:37:46Z'
+      message: waiting for install components to report healthy
+      phase: Installing
+      reason: InstallSucceeded
+    - lastTransitionTime: '2025-12-05T16:37:46Z'
+      lastUpdateTime: '2025-12-05T16:37:46Z'
+      message: 'installing: waiting for deployment descheduler-operator to become ready: deployment "descheduler-operator" not available: Deployment does not have minimum availability.'
+      phase: Installing
+      reason: InstallWaiting
+    - lastTransitionTime: '2025-12-05T16:37:53Z'
+      lastUpdateTime: '2025-12-05T16:37:53Z'
+      message: install strategy completed with no errors
+      phase: Succeeded
+      reason: InstallSucceeded
+    - lastTransitionTime: '2025-12-05T16:43:41Z'
+      lastUpdateTime: '2025-12-05T16:43:41Z'
+      message: 'installing: waiting for deployment descheduler-operator to become ready: deployment "descheduler-operator" not available: Deployment does not have minimum availability.'
+      phase: Failed
+      reason: ComponentUnhealthy
+    - lastTransitionTime: '2025-12-05T16:43:41Z'
+      lastUpdateTime: '2025-12-05T16:43:41Z'
+      message: 'installing: waiting for deployment descheduler-operator to become ready: deployment "descheduler-operator" not available: Deployment does not have minimum availability.'
+      phase: Pending
+      reason: NeedsReinstall
+    - lastTransitionTime: '2025-12-05T16:43:41Z'
+      lastUpdateTime: '2025-12-05T16:43:41Z'
+      message: 'all requirements found, attempting install'
+      phase: InstallReady
+      reason: AllRequirementsMet
+    - lastTransitionTime: '2025-12-05T16:43:42Z'
+      lastUpdateTime: '2025-12-05T16:43:42Z'
+      message: waiting for install components to report healthy
+      phase: Installing
+      reason: InstallSucceeded
+    - lastTransitionTime: '2025-12-05T16:43:42Z'
+      lastUpdateTime: '2025-12-05T16:43:42Z'
+      message: 'installing: waiting for deployment descheduler-operator to become ready: deployment "descheduler-operator" not available: Deployment does not have minimum availability.'
+      phase: Installing
+      reason: InstallWaiting
+    - lastTransitionTime: '2025-12-05T16:43:53Z'
+      lastUpdateTime: '2025-12-05T16:43:53Z'
+      message: install strategy completed with no errors
+      phase: Succeeded
+      reason: InstallSucceeded
+    - lastTransitionTime: '2025-12-05T17:00:38Z'
+      lastUpdateTime: '2025-12-05T17:00:38Z'
+      message: 'installing: waiting for deployment descheduler-operator to become ready: deployment "descheduler-operator" not available: Deployment does not have minimum availability.'
+      phase: Failed
+      reason: ComponentUnhealthy
+    - lastTransitionTime: '2025-12-05T17:00:42Z'
+      lastUpdateTime: '2025-12-05T17:00:42Z'
+      message: 'installing: waiting for deployment descheduler-operator to become ready: deployment "descheduler-operator" not available: Deployment does not have minimum availability.'
+      phase: Pending
+      reason: NeedsReinstall
+    - lastTransitionTime: '2025-12-05T17:00:46Z'
+      lastUpdateTime: '2025-12-05T17:00:46Z'
+      message: 'all requirements found, attempting install'
+      phase: InstallReady
+      reason: AllRequirementsMet
+    - lastTransitionTime: '2025-12-05T17:00:47Z'
+      lastUpdateTime: '2025-12-05T17:00:47Z'
+      message: waiting for install components to report healthy
+      phase: Installing
+      reason: InstallSucceeded
+    - lastTransitionTime: '2025-12-05T17:00:47Z'
+      lastUpdateTime: '2025-12-05T17:00:49Z'
+      message: 'installing: waiting for deployment descheduler-operator to become ready: deployment "descheduler-operator" not available: Deployment does not have minimum availability.'
+      phase: Installing
+      reason: InstallWaiting
+    - lastTransitionTime: '2025-12-05T17:00:53Z'
+      lastUpdateTime: '2025-12-05T17:00:53Z'
+      message: install strategy completed with no errors
+      phase: Succeeded
+      reason: InstallSucceeded
+  lastTransitionTime: '2025-12-05T17:00:53Z'
+  lastUpdateTime: '2025-12-05T17:00:53Z'
+  message: install strategy completed with no errors
+  phase: Succeeded
+  reason: InstallSucceeded
+  requirementStatus:
+    - group: operators.coreos.com
+      kind: ClusterServiceVersion
+      message: CSV minKubeVersion (1.33.0) less than server version (v1.33.5)
+      name: clusterkubedescheduleroperator.v5.3.1
+      status: Present
+      version: v1alpha1
+    - group: apiextensions.k8s.io
+      kind: CustomResourceDefinition
+      message: CRD is present and Established condition is true
+      name: kubedeschedulers.operator.openshift.io
+      status: Present
+      uuid: 98e88f4f-3c23-4f1f-bf0e-3d00616d28e4
+      version: v1
+    - dependents:
+        - group: rbac.authorization.k8s.io
+          kind: PolicyRule
+          message: 'cluster rule:{"verbs":["get","watch","list"],"apiGroups":["config.openshift.io"],"resources":["schedulers"]}'
+          status: Satisfied
+          version: v1
+        - group: rbac.authorization.k8s.io
+          kind: PolicyRule
+          message: 'cluster rule:{"verbs":["get","watch","list","create","update","patch","delete","deletecollection"],"apiGroups":["monitoring.coreos.com"],"resources":["servicemonitors","prometheusrules"]}'
+          status: Satisfied
+          version: v1
+        - group: rbac.authorization.k8s.io
+          kind: PolicyRule
+          message: 'cluster rule:{"verbs":["get","create","update"],"apiGroups":["monitoring.coreos.com"],"resources":["prometheuses/api"],"resourceNames":["k8s"]}'
+          status: Satisfied
+          version: v1
+        - group: rbac.authorization.k8s.io
+          kind: PolicyRule
+          message: 'cluster rule:{"verbs":["get","watch","list","create","update","patch","delete","deletecollection"],"apiGroups":["operator.openshift.io"],"resources":["kubedeschedulers","kubedeschedulers/status"]}'
+          status: Satisfied
+          version: v1
+        - group: rbac.authorization.k8s.io
+          kind: PolicyRule
+          message: 'cluster rule:{"verbs":["get","watch","list","create","update","patch","delete","deletecollection"],"apiGroups":[""],"resources":["services","configmaps","secrets","events","serviceaccounts"]}'
+          status: Satisfied
+          version: v1
+        - group: rbac.authorization.k8s.io
+          kind: PolicyRule
+          message: 'cluster rule:{"verbs":["get","watch","list"],"apiGroups":[""],"resources":["namespaces","pods"]}'
+          status: Satisfied
+          version: v1
+        - group: rbac.authorization.k8s.io
+          kind: PolicyRule
+          message: 'cluster rule:{"verbs":["get","watch","list","patch","update"],"apiGroups":[""],"resources":["nodes"]}'
+          status: Satisfied
+          version: v1
+        - group: rbac.authorization.k8s.io
+          kind: PolicyRule
+          message: 'cluster rule:{"verbs":["create"],"apiGroups":[""],"resources":["pods/eviction"]}'
+          status: Satisfied
+          version: v1
+        - group: rbac.authorization.k8s.io
+          kind: PolicyRule
+          message: 'cluster rule:{"verbs":["get","watch","list","create","update","patch","delete","deletecollection"],"apiGroups":["rbac.authorization.k8s.io"],"resources":["clusterroles","clusterrolebindings","roles","rolebindings"]}'
+          status: Satisfied
+          version: v1
+        - group: rbac.authorization.k8s.io
+          kind: PolicyRule
+          message: 'cluster rule:{"verbs":["get","watch","list"],"apiGroups":["scheduling.k8s.io"],"resources":["priorityclasses"]}'
+          status: Satisfied
+          version: v1
+        - group: rbac.authorization.k8s.io
+          kind: PolicyRule
+          message: 'cluster rule:{"verbs":["get","watch","list"],"apiGroups":["policy"],"resources":["poddisruptionbudgets"]}'
+          status: Satisfied
+          version: v1
+        - group: rbac.authorization.k8s.io
+          kind: PolicyRule
+          message: 'cluster rule:{"verbs":["get","watch","list"],"apiGroups":["apps"],"resources":["replicasets"]}'
+          status: Satisfied
+          version: v1
+        - group: rbac.authorization.k8s.io
+          kind: PolicyRule
+          message: 'cluster rule:{"verbs":["get","watch","list","create","update","patch","delete","deletecollection"],"apiGroups":["apps"],"resources":["deployments","deployments/scale"]}'
+          status: Satisfied
+          version: v1
+        - group: rbac.authorization.k8s.io
+          kind: PolicyRule
+          message: 'cluster rule:{"verbs":["get","watch","list","create","update","patch","delete"],"apiGroups":["coordination.k8s.io"],"resources":["leases"]}'
+          status: Satisfied
+          version: v1
+        - group: rbac.authorization.k8s.io
+          kind: PolicyRule
+          message: 'cluster rule:{"verbs":["get","watch","list","create","update","patch","delete"],"apiGroups":["events.k8s.io"],"resources":["events"]}'
+          status: Satisfied
+          version: v1
+        - group: rbac.authorization.k8s.io
+          kind: PolicyRule
+          message: 'cluster rule:{"verbs":["get","watch","list"],"apiGroups":["config.openshift.io"],"resources":["infrastructures","apiservers"]}'
+          status: Satisfied
+          version: v1
+        - group: rbac.authorization.k8s.io
+          kind: PolicyRule
+          message: 'cluster rule:{"verbs":["get","watch","list"],"apiGroups":["route.openshift.io"],"resources":["routes"]}'
+          status: Satisfied
+          version: v1
+        - group: rbac.authorization.k8s.io
+          kind: PolicyRule
+          message: 'cluster rule:{"verbs":["get","watch","list"],"apiGroups":[""],"resources":["endpoints"]}'
+          status: Satisfied
+          version: v1
+        - group: rbac.authorization.k8s.io
+          kind: PolicyRule
+          message: 'cluster rule:{"verbs":["get","watch","list","create","update","patch","delete","deletecollection"],"apiGroups":["admissionregistration.k8s.io"],"resources":["validatingadmissionpolicies","validatingadmissionpolicybindings"]}'
+          status: Satisfied
+          version: v1
+      group: ''
+      kind: ServiceAccount
+      message: ''
+      name: openshift-descheduler
+      status: Present
+      version: v1

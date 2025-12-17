@@ -1,0 +1,48 @@
+# En el Restore en el cluster de DESTINO (SNO)
+apiVersion: velero.io/v1
+kind: Restore
+metadata:
+  name: restore-fedora05
+  namespace: oadp-user1
+  annotations:
+    restore.spec.velero.io/storage-class-selectors: 'storage-class-map-config'
+spec:
+  backupName: backup-fedora-bronze-gerbil-34-4
+  # ... (resto de tu spec)
+  hooks:
+    resources:
+      - name: transform-pvc-resources
+        includedResources:
+          - persistentvolumeclaims
+        preHooks: # Aplicar antes de crear el recurso
+          - exec:
+              command:
+                - /bin/sh
+                - -c
+                - >
+                  # 1. Aplica el parche para eliminar el selector (si aún es necesario)
+                  kubectl patch persistentvolumeclaim ${RESTORE_RESOURCE} --namespace ${RESTORE_NAMESPACE}
+                  --type json --patch "$(cat /var/lib/velero/pvc-transform-selector.json)";
+                  # 2. Aplica el parche para cambiar el accessMode
+                  kubectl patch persistentvolumeclaim ${RESTORE_RESOURCE} --namespace ${RESTORE_NAMESPACE}
+                  --type json --patch "$(cat /var/lib/velero/pvc-transform-accessmode.json)"
+              container: velero
+              onFail: Continue
+              resource: persistentvolumeclaims
+              target: host
+        configMaps:
+          # ConfigMap de mapeo de StorageClass (ya deberías tenerlo)
+          - name: storage-class-map-config
+            items:
+              - key: ocs-external-storagecluster-ceph-rbd
+                path: /var/lib/velero/storage-class-map.json # La ruta es solo un ejemplo
+          # ConfigMap para eliminar el selector (si aún lo necesitas)
+          - name: pvc-selector-transform
+            items:
+              - key: pvc-transform.json
+                path: /var/lib/velero/pvc-transform-selector.json
+          # NUEVO ConfigMap para corregir el modo de acceso
+          - name: pvc-accessmode-transform
+            items:
+              - key: pvc-transform-accessmode.json
+                path: /var/lib/velero/pvc-transform-accessmode.json

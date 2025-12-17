@@ -1,0 +1,40 @@
+apiVersion: oadp.ovirt.org/v1alpha1
+kind: DataProtectionApplication
+metadata:
+  name: oadp
+  namespace: openshift-adp          # Namespace donde esta instalado OADP
+spec:
+  backupLocations:
+    - name: odf-noobaa
+      provider: aws
+      velero:
+        config:
+          region: localstorage
+          s3ForcePathStyle: 'true'
+          s3Url: https://noobaa-s3.backups.example.com    # endpoint público
+          insecureSkipTLSVerify: "false"                  # cambia a "true" solo si TLS self-signed
+        credential:
+          name: credentials-velero  # Nombre del secret
+          key: cloud
+      objectStorage:
+        bucket: <bucket-name>       # Nombre del bucket
+        prefix: oadp-backups
+      default: true
+  configuration:
+    nodeAgent:
+      enable: true
+      uploaderType: kopia
+    velero:
+      defaultPlugins:
+        - aws
+        - openshift
+        - kubevirt
+        - csi
+      featureFlags:
+        - EnableCSI
+  snapshotLocations:
+    - velero:
+        config:
+          profile: default
+          region: localstorage
+        provider: aws

@@ -1,0 +1,14 @@
+# En el cluster de DESTINO
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: pvc-selector-transform
+  namespace: oadp-user1 # O el namespace donde instalaste OADP/Velero
+data:
+  pvc-transform.json: |
+    [
+      {
+        "op": "remove",
+        "path": "/spec/selector"
+      }
+    ]

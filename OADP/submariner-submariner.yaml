@@ -1,0 +1,253 @@
+﻿apiVersion: submariner.io/v1alpha1
+kind: Submariner
+metadata:
+  resourceVersion: '14613829'
+  name: submariner
+  uid: 3d381312-4da0-4e62-ba61-021b397d8138
+  creationTimestamp: '2025-12-01T14:26:02Z'
+  generation: 3
+  managedFields:
+    - apiVersion: submariner.io/v1alpha1
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:metadata':
+          'f:finalizers':
+            .: {}
+            'v:"controllers.submariner.io/cleanup"': {}
+      manager: submariner-operator
+      operation: Update
+      time: '2025-12-01T14:26:02Z'
+    - apiVersion: submariner.io/v1alpha1
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:metadata':
+          'f:ownerReferences':
+            .: {}
+            'k:{"uid":"079cd84a-00b9-400c-a846-b8f3c5548d29"}': {}
+        'f:spec':
+          'f:clusterID': {}
+          'f:brokerK8sApiServer': {}
+          'f:haltOnCertificateError': {}
+          'f:namespace': {}
+          'f:ceIPSecNATTPort': {}
+          'f:globalCIDR': {}
+          'f:broker': {}
+          .: {}
+          'f:cableDriver': {}
+          'f:loadBalancerEnabled': {}
+          'f:serviceDiscoveryEnabled': {}
+          'f:ceIPSecForceUDPEncaps': {}
+          'f:natEnabled': {}
+          'f:airGappedDeployment': {}
+          'f:ceIPSecPSK': {}
+          'f:brokerK8sInsecure': {}
+          'f:serviceCIDR': {}
+          'f:brokerK8sApiServerToken': {}
+          'f:colorCodes': {}
+          'f:brokerK8sCA': {}
+          'f:clusterCIDR': {}
+          'f:brokerK8sRemoteNamespace': {}
+          'f:repository': {}
+          'f:debug': {}
+          'f:ceIPSecDebug': {}
+          'f:hostedCluster': {}
+      manager: work-agent
+      operation: Update
+      time: '2025-12-01T14:26:02Z'
+    - apiVersion: submariner.io/v1alpha1
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:status':
+          'f:routeAgentDaemonSetStatus':
+            .: {}
+            'f:lastResourceVersion': {}
+            'f:mismatchedContainerImages': {}
+            'f:nonReadyContainerStates': {}
+            'f:status':
+              .: {}
+              'f:currentNumberScheduled': {}
+              'f:desiredNumberScheduled': {}
+              'f:numberAvailable': {}
+              'f:numberMisscheduled': {}
+              'f:numberReady': {}
+              'f:observedGeneration': {}
+              'f:updatedNumberScheduled': {}
+          'f:gatewayDaemonSetStatus':
+            .: {}
+            'f:lastResourceVersion': {}
+            'f:mismatchedContainerImages': {}
+            'f:nonReadyContainerStates': {}
+            'f:status':
+              .: {}
+              'f:currentNumberScheduled': {}
+              'f:desiredNumberScheduled': {}
+              'f:numberAvailable': {}
+              'f:numberMisscheduled': {}
+              'f:numberReady': {}
+              'f:observedGeneration': {}
+              'f:updatedNumberScheduled': {}
+          'f:clusterID': {}
+          'f:loadBalancerStatus': {}
+          'f:gateways': {}
+          'f:version': {}
+          'f:deploymentInfo': {}
+          'f:globalnetDaemonSetStatus':
+            .: {}
+            'f:lastResourceVersion': {}
+            'f:mismatchedContainerImages': {}
+            'f:nonReadyContainerStates': {}
+            'f:status':
+              .: {}
+              'f:currentNumberScheduled': {}
+              'f:desiredNumberScheduled': {}
+              'f:numberAvailable': {}
+              'f:numberMisscheduled': {}
+              'f:numberReady': {}
+              'f:observedGeneration': {}
+              'f:updatedNumberScheduled': {}
+          'f:globalCIDR': {}
+          'f:networkPlugin': {}
+          .: {}
+          'f:natEnabled': {}
+          'f:serviceCIDR': {}
+          'f:colorCodes': {}
+          'f:clusterCIDR': {}
+      manager: submariner-operator
+      operation: Update
+      subresource: status
+      time: '2025-12-05T22:42:11Z'
+  namespace: submariner-operator
+  ownerReferences:
+    - apiVersion: work.open-cluster-management.io/v1
+      kind: AppliedManifestWork
+      name: c6be7098377f35eacc34163acd3fd7814cbf4d17e805bc88efa68cb1fa0f5628-submariner-resource
+      uid: 079cd84a-00b9-400c-a846-b8f3c5548d29
+  finalizers:
+    - controllers.submariner.io/cleanup
+spec:
+  natEnabled: true
+  ceIPSecPSK: 5BmYUFSsJj9xrOrUHPgiL5wP/tYXE0QpMN2TTB8Z9h7CJ+qNjBMvMkr0UvGfuv8U
+  colorCodes: blue
+  cableDriver: vxlan
+  loadBalancerEnabled: false
+  serviceDiscoveryEnabled: true
+  ceIPSecForceUDPEncaps: false
+  brokerK8sRemoteNamespace: submariner-broker
+  airGappedDeployment: false
+  brokerK8sApiServerToken: eyJhbGciOiJSUzI1NiIsImtpZCI6IjVmbUJpOERGUmJnSi1ZUHllRXRvb2IycjNXNkdaSWgyLWJWUzRaeUZXUFUifQ.eyJpc3MiOiJrdWJlcm5ldGVzL3NlcnZpY2VhY2NvdW50Iiwia3ViZXJuZXRlcy5pby9zZXJ2aWNlYWNjb3VudC9uYW1lc3BhY2UiOiJzdWJtYXJpbmVyLWJyb2tlciIsImt1YmVybmV0ZXMuaW8vc2VydmljZWFjY291bnQvc2VjcmV0Lm5hbWUiOiJzcG9rZTEtYnJva2VyIiwia3ViZXJuZXRlcy5pby9zZXJ2aWNlYWNjb3VudC9zZXJ2aWNlLWFjY291bnQubmFtZSI6InNwb2tlMSIsImt1YmVybmV0ZXMuaW8vc2VydmljZWFjY291bnQvc2VydmljZS1hY2NvdW50LnVpZCI6IjNjMTJjYjI0LWU0ZjItNDE3MS04NGNlLWZkYjUxOGQxMjBmMyIsInN1YiI6InN5c3RlbTpzZXJ2aWNlYWNjb3VudDpzdWJtYXJpbmVyLWJyb2tlcjpzcG9rZTEifQ.tFY2q8QPx7pHc2LeZv06r9oeu6AvEVqg7j0UWD8JvulI48vZF8lOiZktctuiUPujiCV-FI12dUr_j2UH7F73jjotw0-U7Jib3rEebvRummSQsWOSURvMau4gjqINF-s-ZHlqf-5iUvd790tnUKMwD-W4XwU3Oj3bXqcAzCS2zVqZ3kR_ti_thnHKfwLOgvX_9P2SnNM04zTeqxy4fQcADRorRYH2o9wXirDke_OomH9oYk6kH1MRHXh7wqwZdE-BdOekgJjPaXPeuBGJ5zA_B5uV0DN7683UjoR7aaPmsGO2w17B35LkcL_Bl_ix6JQUS5YsOtXl9UC3lbVUa3ITlOu061D56LOERNdN2EISX5q3vQTOvHM0ULjnhdaW6s82j1bZUMwfphkdmf3GSXE4NylaguZ3WsAHLrefzJbdyjF3oTE-p9o8u0zvXWOuQDlG4-BDO_aGj8Qmtl7O5FqeR9WK1moh05SKc-sHmAAKTpoBFk8rGMD61Qw7XbouhRCrKllxplu7tV-Zwf857IjoLKmvMk1eZTEKRTAy0wsWH-xmofQsmLS1nu5s_vM6fLkWkDIaZYAKUlzmkXTv43rKNG4avcf8kv6nHRoIxYtRuI5qhbWOuxp0q9WEAhcQ9luwSOwcUcQ73p7PWoJZtCsbU-SU7gQB_cBqjl_EvDPguBU
+  brokerK8sInsecure: false
+  serviceCIDR: ''
+  repository: registry.redhat.io/rhacm2
+  ceIPSecDebug: false
+  brokerK8sCA: LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSURNakNDQWhxZ0F3SUJBZ0lJS0VWSnBVeDdDT293RFFZSktvWklodmNOQVFFTEJRQXdOekVTTUJBR0ExVUUKQ3hNSmIzQmxibk5vYVdaME1TRXdId1lEVlFRREV4aHJkV0psTFdGd2FYTmxjblpsY2kxc1lpMXphV2R1WlhJdwpIaGNOTWpVeE1URXhNREEwTlRJeldoY05NelV4TVRBNU1EQTBOVEl6V2pBM01SSXdFQVlEVlFRTEV3bHZjR1Z1CmMyaHBablF4SVRBZkJnTlZCQU1UR0d0MVltVXRZWEJwYzJWeWRtVnlMV3hpTFhOcFoyNWxjakNDQVNJd0RRWUoKS29aSWh2Y05BUUVCQlFBRGdnRVBBRENDQVFvQ2dnRUJBTFRUaHBvYzczby81TUtCUzFvWG5iRG1MQ0I0OStZMApxWFZXSFgzM3c5UGRPR0Z5a2t4aHhxZGJIYWRJWXNUcHZEZllRazRFSDZJZ1BFMCs0YU9VSStSZG5pWWdDWkpLCjI0TkNscWpHRGRuNkcvK0xYZmxmM1pDMnZqRFpPZithT3d1WmppOFBPU04raEZ0R0pCbko2SWRVai9QQ09NZloKUXdVUmtKT2pEakVLWndscHhINHhFNGlqZ0haUUhBUjBxdkNtcEJRcFFjaXo1TnNBM3cwOFhQYmR2MHJyVFpjaAoxNy9EVldJRjBhbXFHc3B1QmZ3ZFVGUzBHTHFUMzNBNDRaVUxKMlVGOTRXd2F0cG1hNUIrb013WjMwbkdPM2xHClRRQXllbzJ6bzdsYnJVQmlxMGNmZndUTVN1UnJuQmx2OWhoYmJvbWhvM1FIZ1pOZ1lrYlhza1VDQXdFQUFhTkMKTUVBd0RnWURWUjBQQVFIL0JBUURBZ0trTUE4R0ExVWRFd0VCL3dRRk1BTUJBZjh3SFFZRFZSME9CQllFRkJuego0L2ZEOUdrVEpSYWxCYndvNG9OU25IZVVNQTBHQ1NxR1NJYjNEUUVCQ3dVQUE0SUJBUUNJcnc3VmJCY3lpYjBlCkR4eFhSckJzcjRMN1A5MzRjK0hRbE50M09WM1V0bmZ3ZlRacGwyWTc4dUJndmpxM2Rua3J6M3I1bmVuakl4OEgKMjNraExvZVFLeGk0ZnNaRHlRZytvUEpnMk1SdFROWGhaL2k4dVFtbWFLZHVacVo4Nmd3U0ZrZk5EdFF4VXZCcApPMHMvR0NQanQwVjQxM2ppaVdDWW41V09wcm4yM2p2dXFrbEd0SVNyMjFTc2pDcXgvYnI1TW0vZ3VTNzJpc25VCnhBaGg3TFdONVVrL1BpYUxac29DN2R5a1BnaDNrSCtNWEFYU0FuaXhqV0x3RlZ1QXVRd2VicUJZdlZhMWtKSTAKSWtWY1lWVWY2ZEFBVWR4Y1BrcWRpeWM2QStJYnJYMmpDYjVjVFF2QkFOOE5JQUJVVmNJUXdDNXJ4VkpJb0tkZgpsSzZHbFdvagotLS0tLUVORCBDRVJUSUZJQ0FURS0tLS0tCi0tLS0tQkVHSU4gQ0VSVElGSUNBVEUtLS0tLQpNSUlEUURDQ0FpaWdBd0lCQWdJSUcrTmhJRG9XRmo4d0RRWUpLb1pJaHZjTkFRRUxCUUF3UGpFU01CQUdBMVVFCkN4TUpiM0JsYm5Ob2FXWjBNU2d3SmdZRFZRUURFeDlyZFdKbExXRndhWE5sY25abGNpMXNiMk5oYkdodmMzUXQKYzJsbmJtVnlNQjRYRFRJMU1URXhNVEF3TkRVeU1sb1hEVE0xTVRFd09UQXdORFV5TWxvd1BqRVNNQkFHQTFVRQpDeE1KYjNCbGJuTm9hV1owTVNnd0pnWURWUVFERXg5cmRXSmxMV0Z3YVhObGNuWmxjaTFzYjJOaGJHaHZjM1F0CmMybG5ibVZ5TUlJQklqQU5CZ2txaGtpRzl3MEJBUUVGQUFPQ0FROEFNSUlCQ2dLQ0FRRUF3OEN4bEFZaGhwUzUKMERKSkVkMnZIWDBxbmVaR1JEUlNDN3lIWnVtMzZqeTgxQ0d4TTNJOWlFdTV4TzNkdzdQUUt4YUtPTllwQlA5SwpveUYwejNTMURrWnJZSkhqZ2hwL3Jsazh5MEUxZ0phT0RudGxpT2xkVTZuSUNNQXpYeXVjT01ycVEzS2N2dXNwCkZnby9qWUF3Q0xvTklPUnZ4aWNMaENqMEY1NHpyTGhnaXJqdkNYdEx4UHlYc3lPZEhER3ZGdEoyTzNYZDIrZzcKVWJVdkdacEI1YVJaMUprMWNud1J1T0lHOTFsVXVpTkJGMzZ0MUlJTHNMNVJ4TXovK3dvRnpKN1NJQ3dZU25SQgpmTmtKOGtpbm9sTHE3cG5tbXNHRnRTbmUwN3RrZHVMWVd2czZ5emJCRnZ0SCtKejl6cElEcDQ1Qjl5MGxQSjFmClBWSHhjUmNLWHdJREFRQUJvMEl3UURBT0JnTlZIUThCQWY4RUJBTUNBcVF3RHdZRFZSMFRBUUgvQkFVd0F3RUIKL3pBZEJnTlZIUTRFRmdRVVFGN1BKWHF0SW5uZFFYcGRtMVB0OHB0Njd0b3dEUVlKS29aSWh2Y05BUUVMQlFBRApnZ0VCQUVlN2dsVGRndmFseCtjSElOQkxPM2ZQb09ZRFpjdEEwaDVwcUdjU1lPY0lpRE5vK08vMlVmNkxCQW15CmVJY0dlZFplcmNjUVIvbCttdWRIMkp0R1RBY2hKSllEck8xQkF6SGx4YzVvd2psTXVGR0ZoVWxjWlZoUEpBYjAKRGJWRWxTTVBIc09OaTZOR2U5c0RDeEtVVGJLdFJjbC9GKzBBYm5UMGtVK0hrTUh1c0dWNkEzTkEvMkNuWUxySAorQTM5TDJTbXJZOXFYcTY2aFhSeWFObERmZTZNVGQ4eGVCY3JNcmZuaG5ldkhzQkdvT0Z1SjNpQzBha1d1alRsCjJQcUJyRWtoTHAranpRRFZpSlh3Mlp1dklCb1o3WVNia1g0WEo3Q2t2WmhGMUc3VUQwZ3ExSUQ0d2drZmFPNFMKVEc1NXdXT0hPNjVXRXQvZlJ2REtsWGcvSjZFPQotLS0tLUVORCBDRVJUSUZJQ0FURS0tLS0tCi0tLS0tQkVHSU4gQ0VSVElGSUNBVEUtLS0tLQpNSUlEVERDQ0FqU2dBd0lCQWdJSWJ3SmtNc0Y0SGdJd0RRWUpLb1pJaHZjTkFRRUxCUUF3UkRFU01CQUdBMVVFCkN4TUpiM0JsYm5Ob2FXWjBNUzR3TEFZRFZRUURFeVZyZFdKbExXRndhWE5sY25abGNpMXpaWEoyYVdObExXNWwKZEhkdmNtc3RjMmxuYm1WeU1CNFhEVEkxTVRFeE1UQXdORFV5TTFvWERUTTFNVEV3T1RBd05EVXlNMW93UkRFUwpNQkFHQTFVRUN4TUpiM0JsYm5Ob2FXWjBNUzR3TEFZRFZRUURFeVZyZFdKbExXRndhWE5sY25abGNpMXpaWEoyCmFXTmxMVzVsZEhkdmNtc3RjMmxuYm1WeU1JSUJJakFOQmdrcWhraUc5dzBCQVFFRkFBT0NBUThBTUlJQkNnS0MKQVFFQXVlczhDUzUwYTFZZlZEWktDNUZ2VVp3TFl2RnVYOG5XMFBMRitCM1VmaUpLM2hKQmNLeGNHZlpXU2czeQovZnhtQVorSTNCajI2cmtsdzliaWI4WThsR2xkbmkxSTJJdjY3bHRvZ3dsdU9ITXM4ZFhDWEthVExiaGM0NTR3CkxBd3ZnTSt2cTVuRWpSaUdtSWl2S0Ziek9LUVRpeTAzRlU3UW96dE1Rb3RWNlRhRnFDWGtsREdhSG5lV3AzbVAKVzh1THlPS1FVSjBkUGFoN1pVOE5zZWR3N2RMY0dlY3M1Mmg3VlJGV2VtVGxNSy83eWxKSm1rc1dEbG95RkxPTQpLWDFvSEoxNVA3MXFuUWQ3ZTVpeDlsZkQ0bEh5Zy9ObDBDNUpPUGRYa3Nvbzh6NFNyN01UZk9PcXo3bGpCR3ovCndtVitET0pydE1GQ1dlOHJEZXpzTDBDNHN3SURBUUFCbzBJd1FEQU9CZ05WSFE4QkFmOEVCQU1DQXFRd0R3WUQKVlIwVEFRSC9CQVV3QXdFQi96QWRCZ05WSFE0RUZnUVV5NDIvUnF6NWFVTndBRTUzN0l1VVV0NzdsU3d3RFFZSgpLb1pJaHZjTkFRRUxCUUFEZ2dFQkFCZGtzZnVlK2YyMGkxc0VqVEFNcHlMQ0RWV1VFUDFIR3ZldUU3QUJwVldyClJKUHJOSUVKb0duWmZVL3pXclNDQ29kckdkeTZGaXJDa3pybkdzWTRmUjdFaExiQ2FLSEx1bmU3T2ZKVEhrWlAKb1ZwQkNPZzh3N2pTQ0ZOYlJMbGRVanRpaUdJRTkxTklOL3B5YXVwYkh4WnprRzdRRllkMFV3dk5ZTmJFTG8vbwpXRDRHMDllZ05yMlNqK2dpVU53RVFFVENxUzRQVnZ3cnNxbzNnNDdrbmRRbjNyWHVRQWVuMnZ5MnNvR3F6d0krCmltcExUUWh3bTBYem5Ia0FLK3RLa2RMMkRFS2ZlVlJTU2ZhTHE5aU5WbWFzMkRFY3FpbEZZQ1dWY1BMM3UrNUwKR3ZuQWpyY2hCSE5pSTY5Nmt4azNOMEYyellkUDVTY05tUDFFNHBKY0tUWT0KLS0tLS1FTkQgQ0VSVElGSUNBVEUtLS0tLQotLS0tLUJFR0lOIENFUlRJRklDQVRFLS0tLS0KTUlJRGx6Q0NBbitnQXdJQkFnSUlLYm5ITmFvdUhJTXdEUVlKS29aSWh2Y05BUUVMQlFBd1dURlhNRlVHQTFVRQpBd3hPYjNCbGJuTm9hV1owTFd0MVltVXRZWEJwYzJWeWRtVnlMVzl3WlhKaGRHOXlYMnh2WTJGc2FHOXpkQzF5ClpXTnZkbVZ5ZVMxelpYSjJhVzVuTFhOcFoyNWxja0F4TnpZeU9ESXpNRGs0TUI0WERUSTFNVEV4TVRBeE1EUTEKTjFvWERUTTFNVEV3T1RBeE1EUTFPRm93V1RGWE1GVUdBMVVFQXd4T2IzQmxibk5vYVdaMExXdDFZbVV0WVhCcApjMlZ5ZG1WeUxXOXdaWEpoZEc5eVgyeHZZMkZzYUc5emRDMXlaV052ZG1WeWVTMXpaWEoyYVc1bkxYTnBaMjVsCmNrQXhOell5T0RJek1EazRNSUlCSWpBTkJna3Foa2lHOXcwQkFRRUZBQU9DQVE4QU1JSUJDZ0tDQVFFQXhsVk0KcGswYUVqZHFiZUdNaEwwbGgzRFdNekNSRkVnT0NFZWxWZUE5aXdoRVRwTkhJT2RVVzMyMTVDc004ZC9RZ3JySwpOZzBYaVNTblJJMEVTRU40a0hOU1A1ZjBPVjgyaTRtS0pIMG02QzRrbGE4N0xHNmVlZm9QbXVMdVVWUi8zbXlNCnFFL1RXNEw1d0doODNTNXlFRE1NYlZwa054R1M4Zk0wVmhENXplZUZIemlnc2ZYT2ZUOGZoV2x5dUpNYVFqK3UKRFFhRWRSVWlGeW9OWkF4MFdwcmZHNXFLbTFvZmYyb2QvQUUxYk9SSGFkNWFDejNDbVI2UC9GanFINFlLcEsrQgo1Y2VqTjJveVJYWU52MCtMWXZaT2tTYWFuL0w4RWJ0M2gzV0FkNFI5V1lvRCtHbEJnOHZ2RzlIbG5ialRkVjcrCnJNTmh6Qy9uSFRNU21GOHlId0lEQVFBQm8yTXdZVEFPQmdOVkhROEJBZjhFQkFNQ0FxUXdEd1lEVlIwVEFRSC8KQkFVd0F3RUIvekFkQmdOVkhRNEVGZ1FVNFphbVZuQkQ2WHVZM212Z1NCZjVOblZMOXVRd0h3WURWUjBqQkJndwpGb0FVNFphbVZuQkQ2WHVZM212Z1NCZjVOblZMOXVRd0RRWUpLb1pJaHZjTkFRRUxCUUFEZ2dFQkFMNVFLSW9uClh3RndWZkNydXRUeHBUdjVrOTFhcjYvbVp0VEkzS2dvK3YzN3RPZjhBM051bFoxNUJwT2hWeGJUQTFCL0k4VE0KYmdObGNSTXpiSk5MRXZtNFFjL0UrYWdVNWFQT2NBdnVGdHpVR0xtcVE1Zkd2SWV4akN6WWJxVUpUWHozWmlOTQpBY3UyMlZ5ZlRkbDJKVkZtZXN0bGZKeEtwUXVRdjR3UXVkWmM4bGltOWYzVXJCUCtzQklOcGJYR0dzTDFQWkZWCjNtNThMdzBEbEloc3NKUXJpeHMyeE5QaFM3aHpvUmRERnNnUksvZlJGNlFPakx6WDZ3TVlma01DN1gwZysvUVAKdUkyblB6MlhKcnI5U1AyZUFTRVFIV1JnUXEvdExYcTlMSnE4SHZFeW5NNnlmQ0RYQk1UdmE2Y2crbVE4aHd3OQoyRjZMSjZQaitEQ0ZBNWM9Ci0tLS0tRU5EIENFUlRJRklDQVRFLS0tLS0KLS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSURiVENDQWxXZ0F3SUJBZ0lJRnh4V2NZUG1mczR3RFFZSktvWklodmNOQVFFTEJRQXdKakVrTUNJR0ExVUUKQXd3YmFXNW5jbVZ6Y3kxdmNHVnlZWFJ2Y2tBeE56WXlPREl6TVRRNE1CNFhEVEkxTVRFeE1UQXhNRFUwT1ZvWApEVEkzTVRFeE1UQXhNRFUxTUZvd0pqRWtNQ0lHQTFVRUF3d2JLaTVoY0hCekxtRjZZeTF5YUM1d1pXMWxlQzV3CmJYZ3VZMjl0TUlJQklqQU5CZ2txaGtpRzl3MEJBUUVGQUFPQ0FROEFNSUlCQ2dLQ0FRRUF2cWUyNHZNS1FCN0QKVHlSQ1ljN1NjelU3aUh6R2s0MVdYakx5TGVRVFJiUGVWQ2ZKZVpWRkltZTBDWW9yUmVtNWd6V3lhUG5NRnFYUgpnbXJOWU50dmRZREtrWjh1QWpSSHlXazRZTUtnNlMvN050U1pldWVETGhsNS9tdFF3VnRXeUM0QUlIcFhOSzBiCnlIUFh5dXlpRTFBc2IwTWNvMk0yd2VFeHBkTHlsVTAwWExnWDRBcFVMcXFIamh0TEJNcUhMYU05VTBXK2N5QzQKSzAzRmpMU3BCVDJjY1d1WWozdERWRWY0WWdoangrVWVFcE9Lamt4YlJzOFovNGNIQzdQTERXdE0zT2R1dTk3YwpVVGNhZUU2ZEo4RkRuM1BLSEZBS1ZLWWh2RTZFWmluTm9SRGcvVk9kelp4QkEyRkVXUHRXdTAxbXVYTkllbVJrCnRYcXlsM1JvaVFJREFRQUJvNEdlTUlHYk1BNEdBMVVkRHdFQi93UUVBd0lGb0RBVEJnTlZIU1VFRERBS0JnZ3IKQmdFRkJRY0RBVEFNQmdOVkhSTUJBZjhFQWpBQU1CMEdBMVVkRGdRV0JCU3ZXNHF5ZHdSaUZUcEcxYU9TOFBXawovTUdwUlRBZkJnTlZIU01FR0RBV2dCVE5oVFkxNUF3ODJXc1lJb0JWRllCOFpkNExDVEFtQmdOVkhSRUVIekFkCmdoc3FMbUZ3Y0hNdVlYcGpMWEpvTG5CbGJXVjRMbkJ0ZUM1amIyMHdEUVlKS29aSWh2Y05BUUVMQlFBRGdnRUIKQUdROVdqSkx2dFlOMmZvSTlKYkd0djZrSlBZRVVkOUYxMHJqR3lqVnpBN083Z3hxUnRrZEtYNWx0eVFyUVdRdQpEREM2VUZnNENJQUhxVTZldUJJZGViL3M5QnN0QkdLVlJMSEJ0U3E3elNUWnJRRWhDK3Vxbkt3cUdlR0Z5TGJmCnRaY08xQjVkMGNnOS9pYkkvWWxqMnRLclB6Z3BYenlMNDByZkttUXFYcE1XeXpnckNXalJjdEY0ZTM4aGVSTkQKTDViZ0RmWExyYzJjUVc1REhyS1ZlZXozSkROdGhkNlRkVFlnODN0UlZOUmJpaVNTa00rQzRDYk03azZkOFNjQQppVE40NEV6ZFdmUnZmNmNMK2dmblJncDlvTzBDNHppSHY1N1VvM25kUlVudGdQMWRQU2RKaDlnUFR1VklaSjBBCjJiamlYMzZJYTAyYVpBdkd2VEwvdnhRPQotLS0tLUVORCBDRVJUSUZJQ0FURS0tLS0tCi0tLS0tQkVHSU4gQ0VSVElGSUNBVEUtLS0tLQpNSUlERERDQ0FmU2dBd0lCQWdJQkFUQU5CZ2txaGtpRzl3MEJBUXNGQURBbU1TUXdJZ1lEVlFRRERCdHBibWR5ClpYTnpMVzl3WlhKaGRHOXlRREUzTmpJNE1qTXhORGd3SGhjTk1qVXhNVEV4TURFd05UUTRXaGNOTWpjeE1URXgKTURFd05UUTVXakFtTVNRd0lnWURWUVFEREJ0cGJtZHlaWE56TFc5d1pYSmhkRzl5UURFM05qSTRNak14TkRndwpnZ0VpTUEwR0NTcUdTSWIzRFFFQkFRVUFBNElCRHdBd2dnRUtBb0lCQVFERUljT3ZwL05pdDkvUGdBd1ZoZGFUCnlNbmFJU2pqanhLT01ldHpDL0doZk1xVHpJVmtySXdDMlBkdXEwcy9GcWhsNllLTzh1dEZ3c0FBc3IyM2szb2EKRXNId0dqSDRFdzliVjhNTGhLWFNLaExMdUM2YWxETXcyYjdBZ2wwUERoemFMMjJaN3haTGxQNk10Z0xLd25uVQo4cDFiM0Vzcm0yWXU0ejgrbExWQTFvSERwck1IeFgySHpWMlVVVlZ3ZWlybmtmcTNvOFdNSkNhamJBMUswSkhWCnhrbHdDTjNhamxDUjhaY1BZeDlZRHV5NEk3UTBNR3BXSmJpSlVHem1zcWtuczhFWkpqTXpDREVGM3lYVTNyZmEKWTBHdHlJSTFtUXBBUFZneE1BTlRHb3ZSbzArZTBIdjNoZVJ1NXBLVFIwZkhSWVo0dFYrR2RIWlBwOEs5R3NwMQpBZ01CQUFHalJUQkRNQTRHQTFVZER3RUIvd1FFQXdJQ3BEQVNCZ05WSFJNQkFmOEVDREFHQVFIL0FnRUFNQjBHCkExVWREZ1FXQkJUTmhUWTE1QXc4MldzWUlvQlZGWUI4WmQ0TENUQU5CZ2txaGtpRzl3MEJBUXNGQUFPQ0FRRUEKQk5ndUhMbGFCV2R3Tk1tSmNNb2IwWE05Zm1KUWZoczdzSFF0NWhyeEl2UTd4ank2ZWgwbm5HLzhxbnE3TjM5WApJZFRkZHVTcGN4bHE4MTI4dEM5aDM4VGNvai9JR2J3TnJGSnFHMnNVS2swb3NOYStLdzJFR0RvSENzL243NDBwCkR3SzhmKy95RU5SVGtQY3RNdjBkOFdLc2YvTEVnWE10ZGo5ZklRMm9mU2NSclZsb3R4bkxKUEcrczM3NmlGMVkKdUxmV210NmNNbkRJZ0pqOE4rY1NMMjNqZUFMQ1RsTUpON2w4UVZuYlMwWmVJWHRnVjdraG95NlR2ME5kclZBTwpKZFBxUTRmTUdpZHVQU1lrVG9EUFg2UnV6TXBCZDRBMTJ4MEp6RE95NDlySFpLRkU2dXdYYkkyNlV4alk1Z2wyCkZ1U05ZbTJMQnd6UkRvcHh2MTR3eGc9PQotLS0tLUVORCBDRVJUSUZJQ0FURS0tLS0tCg==
+  clusterCIDR: ''
+  brokerK8sApiServer: 'api.azc-rh.pemex.pmx.com:6443'
+  haltOnCertificateError: true
+  debug: false
+  hostedCluster: false
+  clusterID: spoke1
+  globalCIDR: 242.0.0.0/16
+  broker: k8s
+  namespace: submariner-operator
+  ceIPSecNATTPort: 4500
+status:
+  natEnabled: true
+  networkPlugin: OVNKubernetes
+  colorCodes: blue
+  serviceCIDR: 172.30.0.0/16
+  gatewayDaemonSetStatus:
+    lastResourceVersion: '10777713'
+    mismatchedContainerImages: false
+    nonReadyContainerStates: []
+    status:
+      currentNumberScheduled: 1
+      desiredNumberScheduled: 1
+      numberAvailable: 1
+      numberMisscheduled: 0
+      numberReady: 1
+      observedGeneration: 1
+      updatedNumberScheduled: 1
+  clusterCIDR: 10.128.0.0/14
+  loadBalancerStatus: {}
+  gateways:
+    - connections:
+        - endpoint:
+            healthCheckIPs:
+              - 242.1.255.254
+            cluster_id: spoke2
+            publicIPs:
+              - 200.23.91.180
+            private_ip: 143.109.110.2
+            nat_enabled: true
+            privateIPs:
+              - 143.109.110.2
+            cable_name: submariner-cable-spoke2-143-109-110-2
+            backend_config:
+              natt-discovery-port: '4490'
+              udp-port: '4500'
+            hostname: apps02.pemex.pmx.com
+            healthCheckIP: 242.1.255.254
+            backend: vxlan
+            subnets:
+              - 242.1.0.0/16
+            public_ip: 200.23.91.180
+          latencyRTT:
+            average: 673.004µs
+            last: 621.363µs
+            max: 49.045293ms
+            min: 506.643µs
+            stdDev: 158.384µs
+          status: connected
+          statusMessage: ''
+          usingIP: 143.109.110.2
+      haStatus: active
+      localEndpoint:
+        healthCheckIPs:
+          - 242.0.255.254
+        cluster_id: spoke1
+        publicIPs:
+          - 200.23.91.181
+        private_ip: 143.109.110.1
+        nat_enabled: true
+        privateIPs:
+          - 143.109.110.1
+        cable_name: submariner-cable-spoke1-143-109-110-1
+        backend_config:
+          natt-discovery-port: '4490'
+          udp-port: '4500'
+        hostname: apps01.pemex.pmx.com
+        healthCheckIP: 242.0.255.254
+        backend: vxlan
+        subnets:
+          - 242.0.0.0/16
+        public_ip: 200.23.91.181
+      statusFailure: ''
+      version: release-0.21
+  deploymentInfo: {}
+  routeAgentDaemonSetStatus:
+    lastResourceVersion: '10777815'
+    mismatchedContainerImages: false
+    nonReadyContainerStates: []
+    status:
+      currentNumberScheduled: 1
+      desiredNumberScheduled: 1
+      numberAvailable: 1
+      numberMisscheduled: 0
+      numberReady: 1
+      observedGeneration: 1
+      updatedNumberScheduled: 1
+  clusterID: spoke1
+  globalnetDaemonSetStatus:
+    lastResourceVersion: '10777889'
+    mismatchedContainerImages: false
+    nonReadyContainerStates: []
+    status:
+      currentNumberScheduled: 1
+      desiredNumberScheduled: 1
+      numberAvailable: 1
+      numberMisscheduled: 0
+      numberReady: 1
+      observedGeneration: 1
+      updatedNumberScheduled: 1
+  globalCIDR: 242.0.0.0/16
+  version: release-0.21

@@ -1,0 +1,15 @@
+# En el cluster de DESTINO (SNO con LVM Storage)
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: pvc-accessmode-transform
+  namespace: oadp-user1 # Usa tu namespace de OADP
+data:
+  pvc-transform-accessmode.json: |
+    [
+      {
+        "op": "replace",
+        "path": "/spec/accessModes",
+        "value": ["ReadWriteOnce"]
+      }
+    ]

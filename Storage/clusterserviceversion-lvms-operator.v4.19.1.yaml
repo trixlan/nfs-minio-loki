@@ -1,0 +1,1096 @@
+﻿apiVersion: operators.coreos.com/v1alpha1
+kind: ClusterServiceVersion
+metadata:
+  annotations:
+    olm.skipRange: '>=4.2.0 <4.19.1'
+    features.operators.openshift.io/token-auth-azure: 'false'
+    operators.openshift.io/valid-subscription: '["OpenShift Kubernetes Engine", "OpenShift Container Platform", "OpenShift Platform Plus"]'
+    operators.operatorframework.io/builder: operator-sdk-v1.38.0-ocp
+    features.operators.openshift.io/token-auth-gcp: 'false'
+    operatorframework.io/initialization-resource: |-
+      {
+          "apiVersion": "lvm.topolvm.io/v1alpha1",
+          "kind": "LVMCluster",
+          "metadata": {
+            "name": "test-lvmcluster"
+          },
+          "spec": {
+            "storage": {
+              "deviceClasses": [
+                {
+                  "name": "vg1",
+                  "thinPoolConfig": {
+                    "name": "thin-pool-1",
+                    "overprovisionRatio": 10,
+                    "sizePercent": 90
+                  }
+                }
+              ]
+            }
+          }
+        }
+    operators.operatorframework.io/project_layout: go.kubebuilder.io/v4
+    olm.targetNamespaces: openshift-storage
+    operatorframework.io/properties: '{"properties":[{"type":"olm.gvk","value":{"group":"lvm.topolvm.io","kind":"LVMCluster","version":"v1alpha1"}},{"type":"olm.gvk","value":{"group":"lvm.topolvm.io","kind":"LVMVolumeGroup","version":"v1alpha1"}},{"type":"olm.gvk","value":{"group":"lvm.topolvm.io","kind":"LVMVolumeGroupNodeStatus","version":"v1alpha1"}},{"type":"olm.gvk","value":{"group":"topolvm.io","kind":"LogicalVolume","version":"v1"}},{"type":"olm.package","value":{"packageName":"lvms-operator","version":"4.19.1"}}]}'
+    repository: 'https://github.com/openshift/lvm-operator'
+    operatorframework.io/suggested-namespace-template: |-
+      {
+        "apiVersion": "v1",
+        "kind": "Namespace",
+        "metadata": {
+          "name": "openshift-storage",
+          "annotations": {
+            "workload.openshift.io/allowed": "management"
+          }
+        }
+      }
+    features.operators.openshift.io/token-auth-aws: 'false'
+    operatorframework.io/cluster-monitoring: 'true'
+    alm-examples: |-
+      [
+        {
+          "apiVersion": "lvm.topolvm.io/v1alpha1",
+          "kind": "LVMCluster",
+          "metadata": {
+            "name": "my-lvmcluster"
+          },
+          "spec": {
+            "storage": {
+              "deviceClasses": [
+                {
+                  "default": true,
+                  "fstype": "xfs",
+                  "name": "vg1",
+                  "thinPoolConfig": {
+                    "name": "thin-pool-1",
+                    "overprovisionRatio": 10,
+                    "sizePercent": 90
+                  }
+                }
+              ]
+            }
+          }
+        }
+      ]
+    capabilities: Seamless Upgrades
+    features.operators.openshift.io/csi: 'true'
+    features.operators.openshift.io/fips-compliant: 'true'
+    features.operators.openshift.io/cnf: 'false'
+    olm.operatorNamespace: openshift-storage
+    containerImage: 'registry.redhat.io/lvms4/lvms-rhel9-operator@sha256:3701735419e2e68b3c579a68c48106f00b8fb7c1915200ee37437cc0f73a975a'
+    operators.operatorframework.io/internal-objects: '["logicalvolumes.topolvm.io", "lvmvolumegroups.lvm.topolvm.io", "lvmvolumegroupnodestatuses.lvm.topolvm.io"]'
+    features.operators.openshift.io/cni: 'false'
+    categories: Storage
+    features.operators.openshift.io/proxy-aware: 'false'
+    operatorframework.io/suggested-namespace: openshift-storage
+    description: Logical volume manager storage provides dynamically provisioned local storage for container workloads
+    olm.operatorGroup: openshift-storage-42l5s
+    features.operators.openshift.io/disconnected: 'true'
+    features.operators.openshift.io/tls-profiles: 'false'
+  resourceVersion: '8816718'
+  name: lvms-operator.v4.19.1
+  uid: a066d786-53d8-4d0e-9e90-38a6adc3b3dd
+  creationTimestamp: '2025-11-15T16:09:28Z'
+  generation: 1
+  managedFields:
+    - apiVersion: operators.coreos.com/v1alpha1
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:metadata':
+          'f:annotations':
+            'f:features.operators.openshift.io/csi': {}
+            'f:features.operators.openshift.io/token-auth-aws': {}
+            'f:features.operators.openshift.io/cnf': {}
+            'f:operators.operatorframework.io/internal-objects': {}
+            'f:features.operators.openshift.io/cni': {}
+            'f:features.operators.openshift.io/proxy-aware': {}
+            'f:alm-examples': {}
+            'f:description': {}
+            'f:capabilities': {}
+            'f:features.operators.openshift.io/fips-compliant': {}
+            'f:olm.skipRange': {}
+            .: {}
+            'f:operators.openshift.io/valid-subscription': {}
+            'f:containerImage': {}
+            'f:categories': {}
+            'f:operatorframework.io/suggested-namespace': {}
+            'f:operators.operatorframework.io/project_layout': {}
+            'f:features.operators.openshift.io/disconnected': {}
+            'f:features.operators.openshift.io/tls-profiles': {}
+            'f:operatorframework.io/properties': {}
+            'f:features.operators.openshift.io/token-auth-azure': {}
+            'f:operatorframework.io/suggested-namespace-template': {}
+            'f:operators.operatorframework.io/builder': {}
+            'f:features.operators.openshift.io/token-auth-gcp': {}
+            'f:operatorframework.io/initialization-resource': {}
+            'f:operatorframework.io/cluster-monitoring': {}
+            'f:repository': {}
+          'f:labels':
+            .: {}
+            'f:full_version': {}
+            'f:olm.managed': {}
+            'f:operatorframework.io/arch.amd64': {}
+            'f:operatorframework.io/arch.arm64': {}
+            'f:operatorframework.io/arch.ppc64le': {}
+            'f:operatorframework.io/arch.s390x': {}
+        'f:spec':
+          'f:version': {}
+          'f:maturity': {}
+          'f:provider':
+            .: {}
+            'f:name': {}
+          'f:links': {}
+          'f:install':
+            .: {}
+            'f:spec':
+              .: {}
+              'f:clusterPermissions': {}
+              'f:deployments': {}
+              'f:permissions': {}
+            'f:strategy': {}
+          'f:maintainers': {}
+          'f:description': {}
+          'f:installModes': {}
+          'f:icon': {}
+          'f:customresourcedefinitions':
+            .: {}
+            'f:owned': {}
+          .: {}
+          'f:relatedImages': {}
+          'f:cleanup':
+            .: {}
+            'f:enabled': {}
+          'f:apiservicedefinitions': {}
+          'f:displayName': {}
+          'f:webhookdefinitions': {}
+          'f:keywords': {}
+      manager: catalog
+      operation: Update
+      time: '2025-11-15T16:09:28Z'
+    - apiVersion: operators.coreos.com/v1alpha1
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:metadata':
+          'f:annotations':
+            'f:olm.operatorGroup': {}
+            'f:olm.operatorNamespace': {}
+            'f:olm.targetNamespaces': {}
+          'f:finalizers':
+            .: {}
+            'v:"operators.coreos.com/csv-cleanup"': {}
+          'f:labels':
+            'f:operators.coreos.com/lvms-operator.openshift-storage': {}
+      manager: olm
+      operation: Update
+      time: '2025-11-15T16:09:28Z'
+    - apiVersion: operators.coreos.com/v1alpha1
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:status':
+          'f:lastUpdateTime': {}
+          'f:requirementStatus': {}
+          'f:phase': {}
+          'f:certsRotateAt': {}
+          'f:certsLastUpdated': {}
+          'f:lastTransitionTime': {}
+          'f:conditions': {}
+          .: {}
+          'f:cleanup': {}
+          'f:message': {}
+          'f:reason': {}
+      manager: olm
+      operation: Update
+      subresource: status
+      time: '2025-11-28T18:22:30Z'
+  namespace: openshift-storage
+  finalizers:
+    - operators.coreos.com/csv-cleanup
+  labels:
+    full_version: 4.19.1-1
+    olm.managed: 'true'
+    operatorframework.io/arch.amd64: supported
+    operatorframework.io/arch.arm64: supported
+    operatorframework.io/arch.ppc64le: supported
+    operatorframework.io/arch.s390x: supported
+    operators.coreos.com/lvms-operator.openshift-storage: ''
+spec:
+  customresourcedefinitions:
+    owned:
+      - kind: LogicalVolume
+        name: logicalvolumes.topolvm.io
+        version: v1
+      - description: LVMCluster is the Schema for the lvmclusters API
+        displayName: LVMCluster
+        kind: LVMCluster
+        name: lvmclusters.lvm.topolvm.io
+        version: v1alpha1
+      - kind: LVMVolumeGroupNodeStatus
+        name: lvmvolumegroupnodestatuses.lvm.topolvm.io
+        version: v1alpha1
+      - kind: LVMVolumeGroup
+        name: lvmvolumegroups.lvm.topolvm.io
+        version: v1alpha1
+  relatedImages:
+    - image: 'registry.redhat.io/lvms4/lvms-rhel9-operator@sha256:3701735419e2e68b3c579a68c48106f00b8fb7c1915200ee37437cc0f73a975a'
+      name: lvms-operator
+    - image: 'registry.redhat.io/lvms4/lvms-must-gather-rhel9@sha256:1e455df18829d87ac99cc7673e1a236fa8f4cc4cc2f56c922810acc0af98cc65'
+      name: lvms-must-gather
+  cleanup:
+    enabled: false
+  apiservicedefinitions: {}
+  webhookdefinitions:
+    - generateName: vlvmcluster.kb.io
+      containerPort: 443
+      sideEffects: None
+      deploymentName: lvms-operator
+      targetPort: 9443
+      rules:
+        - apiGroups:
+            - lvm.topolvm.io
+          apiVersions:
+            - v1alpha1
+          operations:
+            - CREATE
+            - UPDATE
+          resources:
+            - lvmclusters
+      type: ValidatingAdmissionWebhook
+      admissionReviewVersions:
+        - v1
+      webhookPath: /validate-lvm-topolvm-io-v1alpha1-lvmcluster
+      failurePolicy: Fail
+  keywords:
+    - local storage
+    - operator
+    - LVM
+  displayName: LVM Storage
+  provider:
+    name: Red Hat
+  maturity: alpha
+  installModes:
+    - supported: true
+      type: OwnNamespace
+    - supported: true
+      type: SingleNamespace
+    - supported: false
+      type: MultiNamespace
+    - supported: false
+      type: AllNamespaces
+  version: 4.19.1
+  icon:
+    - base64data: PHN2ZyBpZD0iTGF5ZXJfMSIgZGF0YS1uYW1lPSJMYXllciAxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxOTIgMTQ1Ij48ZGVmcz48c3R5bGU+LmNscy0xe2ZpbGw6I2UwMDt9PC9zdHlsZT48L2RlZnM+PHRpdGxlPlJlZEhhdC1Mb2dvLUhhdC1Db2xvcjwvdGl0bGU+PHBhdGggZD0iTTE1Ny43Nyw2Mi42MWExNCwxNCwwLDAsMSwuMzEsMy40MmMwLDE0Ljg4LTE4LjEsMTcuNDYtMzAuNjEsMTcuNDZDNzguODMsODMuNDksNDIuNTMsNTMuMjYsNDIuNTMsNDRhNi40Myw2LjQzLDAsMCwxLC4yMi0xLjk0bC0zLjY2LDkuMDZhMTguNDUsMTguNDUsMCwwLDAtMS41MSw3LjMzYzAsMTguMTEsNDEsNDUuNDgsODcuNzQsNDUuNDgsMjAuNjksMCwzNi40My03Ljc2LDM2LjQzLTIxLjc3LDAtMS4wOCwwLTEuOTQtMS43My0xMC4xM1oiLz48cGF0aCBjbGFzcz0iY2xzLTEiIGQ9Ik0xMjcuNDcsODMuNDljMTIuNTEsMCwzMC42MS0yLjU4LDMwLjYxLTE3LjQ2YTE0LDE0LDAsMCwwLS4zMS0zLjQybC03LjQ1LTMyLjM2Yy0xLjcyLTcuMTItMy4yMy0xMC4zNS0xNS43My0xNi42QzEyNC44OSw4LjY5LDEwMy43Ni41LDk3LjUxLjUsOTEuNjkuNSw5MCw4LDgzLjA2LDhjLTYuNjgsMC0xMS42NC01LjYtMTcuODktNS42LTYsMC05LjkxLDQuMDktMTIuOTMsMTIuNSwwLDAtOC40MSwyMy43Mi05LjQ5LDI3LjE2QTYuNDMsNi40MywwLDAsMCw0Mi41Myw0NGMwLDkuMjIsMzYuMywzOS40NSw4NC45NCwzOS40NU0xNjAsNzIuMDdjMS43Myw4LjE5LDEuNzMsOS4wNSwxLjczLDEwLjEzLDAsMTQtMTUuNzQsMjEuNzctMzYuNDMsMjEuNzdDNzguNTQsMTA0LDM3LjU4LDc2LjYsMzcuNTgsNTguNDlhMTguNDUsMTguNDUsMCwwLDEsMS41MS03LjMzQzIyLjI3LDUyLC41LDU1LC41LDc0LjIyYzAsMzEuNDgsNzQuNTksNzAuMjgsMTMzLjY1LDcwLjI4LDQ1LjI4LDAsNTYuNy0yMC40OCw1Ni43LTM2LjY1LDAtMTIuNzItMTEtMjcuMTYtMzAuODMtMzUuNzgiLz48L3N2Zz4=
+      mediatype: image/svg+xml
+  links:
+    - name: Source Repository
+      url: 'https://github.com/openshift/lvm-operator'
+  install:
+    spec:
+      clusterPermissions:
+        - rules:
+            - apiGroups:
+                - ''
+              resources:
+                - configmaps
+                - persistentvolumes
+              verbs:
+                - create
+                - delete
+                - get
+                - list
+                - patch
+                - update
+                - watch
+            - apiGroups:
+                - ''
+              resources:
+                - events
+              verbs:
+                - create
+                - list
+                - patch
+                - update
+                - watch
+            - apiGroups:
+                - ''
+              resources:
+                - node
+              verbs:
+                - get
+                - list
+                - watch
+            - apiGroups:
+                - ''
+              resources:
+                - nodes
+              verbs:
+                - get
+                - list
+                - patch
+                - update
+                - watch
+            - apiGroups:
+                - ''
+              resources:
+                - persistentvolumeclaims
+              verbs:
+                - delete
+                - get
+                - list
+                - update
+                - watch
+            - apiGroups:
+                - ''
+              resources:
+                - persistentvolumeclaims/status
+              verbs:
+                - patch
+            - apiGroups:
+                - ''
+              resources:
+                - pods
+              verbs:
+                - delete
+                - get
+                - list
+                - watch
+            - apiGroups:
+                - apiextensions.k8s.io
+              resources:
+                - customresourcedefinitions
+              verbs:
+                - get
+                - list
+            - apiGroups:
+                - apps
+              resources:
+                - daemonsets
+                - deployments
+              verbs:
+                - create
+                - delete
+                - get
+                - list
+                - patch
+                - update
+                - watch
+            - apiGroups:
+                - apps
+              resources:
+                - replicasets
+              verbs:
+                - get
+            - apiGroups:
+                - config.openshift.io
+              resources:
+                - infrastructures
+              verbs:
+                - get
+            - apiGroups:
+                - coordination.k8s.io
+              resources:
+                - leases
+              verbs:
+                - create
+                - delete
+                - get
+                - list
+                - patch
+                - update
+                - watch
+            - apiGroups:
+                - lvm.topolvm.io
+              resources:
+                - lvmclusters
+                - lvmvolumegroupnodestatuses
+                - lvmvolumegroups
+              verbs:
+                - create
+                - delete
+                - get
+                - list
+                - patch
+                - update
+                - watch
+            - apiGroups:
+                - lvm.topolvm.io
+              resources:
+                - lvmclusters/finalizers
+                - lvmvolumegroupnodestatuses/finalizers
+                - lvmvolumegroups/finalizers
+              verbs:
+                - update
+            - apiGroups:
+                - lvm.topolvm.io
+              resources:
+                - lvmclusters/status
+                - lvmvolumegroupnodestatuses/status
+                - lvmvolumegroups/status
+              verbs:
+                - get
+                - patch
+                - update
+            - apiGroups:
+                - monitoring.coreos.com
+              resources:
+                - servicemonitors
+              verbs:
+                - create
+                - delete
+                - get
+                - list
+                - patch
+                - update
+                - watch
+            - apiGroups:
+                - security.openshift.io
+              resources:
+                - securitycontextconstraints
+              verbs:
+                - create
+                - delete
+                - get
+                - list
+                - patch
+                - update
+                - watch
+            - apiGroups:
+                - snapshot.storage.k8s.io
+              resources:
+                - volumesnapshotclasses
+              verbs:
+                - create
+                - delete
+                - get
+                - list
+                - patch
+                - update
+                - watch
+            - apiGroups:
+                - snapshot.storage.k8s.io
+              resources:
+                - volumesnapshotcontents
+              verbs:
+                - get
+                - list
+                - patch
+                - update
+                - watch
+            - apiGroups:
+                - snapshot.storage.k8s.io
+              resources:
+                - volumesnapshotcontents/status
+              verbs:
+                - patch
+                - update
+            - apiGroups:
+                - snapshot.storage.k8s.io
+              resources:
+                - volumesnapshots
+              verbs:
+                - get
+                - list
+            - apiGroups:
+                - storage.k8s.io
+              resources:
+                - csidrivers
+                - csistoragecapacities
+                - storageclasses
+              verbs:
+                - create
+                - delete
+                - get
+                - list
+                - patch
+                - update
+                - watch
+            - apiGroups:
+                - storage.k8s.io
+              resources:
+                - csinodes
+                - volumeattachments
+              verbs:
+                - get
+                - list
+                - watch
+            - apiGroups:
+                - topolvm.io
+              resources:
+                - logicalvolumes
+                - logicalvolumes/status
+              verbs:
+                - create
+                - delete
+                - get
+                - list
+                - patch
+                - update
+                - watch
+            - apiGroups:
+                - authentication.k8s.io
+              resources:
+                - tokenreviews
+              verbs:
+                - create
+            - apiGroups:
+                - authorization.k8s.io
+              resources:
+                - subjectaccessreviews
+              verbs:
+                - create
+          serviceAccountName: lvms-operator
+        - rules:
+            - apiGroups:
+                - authentication.k8s.io
+              resources:
+                - tokenreviews
+              verbs:
+                - create
+            - apiGroups:
+                - authorization.k8s.io
+              resources:
+                - subjectaccessreviews
+              verbs:
+                - create
+            - apiGroups:
+                - ''
+              resources:
+                - nodes
+              verbs:
+                - get
+                - list
+                - watch
+                - update
+                - patch
+            - apiGroups:
+                - topolvm.io
+              resources:
+                - logicalvolumes
+                - logicalvolumes/status
+              verbs:
+                - get
+                - list
+                - watch
+                - create
+                - update
+                - delete
+                - patch
+            - apiGroups:
+                - storage.k8s.io
+              resources:
+                - csidrivers
+              verbs:
+                - get
+                - list
+                - watch
+          serviceAccountName: vg-manager
+      deployments:
+        - label:
+            app.kubernetes.io/name: lvms-operator
+          name: lvms-operator
+          spec:
+            replicas: 1
+            selector:
+              matchLabels:
+                app.kubernetes.io/name: lvms-operator
+            strategy:
+              type: Recreate
+            template:
+              metadata:
+                annotations:
+                  target.workload.openshift.io/management: '{"effect": "PreferredDuringScheduling"}'
+                creationTimestamp: null
+                labels:
+                  app.kubernetes.io/component: lvms-operator
+                  app.kubernetes.io/name: lvms-operator
+                  app.kubernetes.io/part-of: lvms-provisioner
+              spec:
+                containers:
+                  - resources:
+                      requests:
+                        cpu: 5m
+                        memory: 50Mi
+                    readinessProbe:
+                      failureThreshold: 3
+                      httpGet:
+                        path: /readyz
+                        port: 8081
+                      initialDelaySeconds: 1
+                      periodSeconds: 60
+                      timeoutSeconds: 1
+                    name: manager
+                    command:
+                      - /lvms
+                      - operator
+                    livenessProbe:
+                      failureThreshold: 3
+                      httpGet:
+                        path: /healthz
+                        port: 8081
+                      initialDelaySeconds: 1
+                      periodSeconds: 30
+                      timeoutSeconds: 1
+                    env:
+                      - name: GOGC
+                        value: '120'
+                      - name: GOMEMLIMIT
+                        value: 50MiB
+                      - name: GOMAXPROCS
+                        value: '2'
+                      - name: NAMESPACE
+                        valueFrom:
+                          fieldRef:
+                            fieldPath: metadata.namespace
+                      - name: NAME
+                        valueFrom:
+                          fieldRef:
+                            fieldPath: metadata.name
+                    securityContext:
+                      allowPrivilegeEscalation: false
+                      capabilities:
+                        drop:
+                          - NET_RAW
+                    ports:
+                      - containerPort: 9443
+                        name: webhook-server
+                        protocol: TCP
+                    volumeMounts:
+                      - mountPath: /tmp/k8s-webhook-server/serving-certs
+                        name: cert
+                        readOnly: true
+                      - mountPath: /tmp/k8s-metrics-server/serving-certs
+                        name: metrics-cert
+                        readOnly: true
+                      - mountPath: /run/topolvm
+                        name: socket-dir
+                    terminationMessagePolicy: FallbackToLogsOnError
+                    image: 'registry.redhat.io/lvms4/lvms-rhel9-operator@sha256:3701735419e2e68b3c579a68c48106f00b8fb7c1915200ee37437cc0f73a975a'
+                    args:
+                      - '--health-probe-bind-address=:8081'
+                      - '--leader-elect=false'
+                priorityClassName: openshift-user-critical
+                securityContext:
+                  runAsNonRoot: true
+                serviceAccountName: lvms-operator
+                terminationGracePeriodSeconds: 10
+                volumes:
+                  - name: cert
+                    secret:
+                      defaultMode: 420
+                      secretName: lvms-operator-webhook-server-cert
+                  - name: metrics-cert
+                    secret:
+                      defaultMode: 420
+                      secretName: lvms-operator-metrics-cert
+                  - emptyDir: {}
+                    name: socket-dir
+      permissions:
+        - rules:
+            - apiGroups:
+                - ''
+              resources:
+                - configmaps
+              verbs:
+                - get
+                - list
+                - watch
+                - create
+                - update
+                - patch
+                - delete
+            - apiGroups:
+                - coordination.k8s.io
+              resources:
+                - leases
+              verbs:
+                - get
+                - list
+                - watch
+                - create
+                - update
+                - patch
+                - delete
+            - apiGroups:
+                - ''
+              resources:
+                - events
+              verbs:
+                - create
+                - patch
+          serviceAccountName: lvms-operator
+        - rules:
+            - apiGroups:
+                - lvm.topolvm.io
+                - apps
+              resources:
+                - lvmvolumegroups
+                - daemonsets
+              verbs:
+                - create
+                - delete
+                - get
+                - list
+                - patch
+                - update
+                - watch
+            - apiGroups:
+                - lvm.topolvm.io
+              resources:
+                - lvmvolumegroups/finalizers
+              verbs:
+                - update
+            - apiGroups:
+                - lvm.topolvm.io
+              resources:
+                - lvmvolumegroups/status
+              verbs:
+                - get
+                - patch
+                - update
+            - apiGroups:
+                - lvm.topolvm.io
+              resources:
+                - lvmvolumegroupnodestatuses
+              verbs:
+                - create
+                - delete
+                - get
+                - list
+                - patch
+                - update
+                - watch
+            - apiGroups:
+                - lvm.topolvm.io
+              resources:
+                - lvmvolumegroupnodestatuses/finalizers
+              verbs:
+                - update
+            - apiGroups:
+                - lvm.topolvm.io
+              resources:
+                - lvmvolumegroupnodestatuses/status
+              verbs:
+                - get
+                - patch
+                - update
+            - apiGroups:
+                - ''
+              resources:
+                - events
+              verbs:
+                - create
+                - patch
+                - update
+          serviceAccountName: vg-manager
+    strategy: deployment
+  maintainers:
+    - email: ocs-support@redhat.com
+      name: Red Hat Support
+  description: Logical volume manager storage provides dynamically provisioned local storage.
+status:
+  reason: InstallSucceeded
+  cleanup: {}
+  message: install strategy completed with no errors
+  lastUpdateTime: '2025-11-28T18:22:30Z'
+  requirementStatus:
+    - group: apiextensions.k8s.io
+      kind: CustomResourceDefinition
+      message: CRD is present and Established condition is true
+      name: logicalvolumes.topolvm.io
+      status: Present
+      uuid: b32d59c7-585d-4bfd-9d73-ac558b0d9556
+      version: v1
+    - group: apiextensions.k8s.io
+      kind: CustomResourceDefinition
+      message: CRD is present and Established condition is true
+      name: lvmclusters.lvm.topolvm.io
+      status: Present
+      uuid: 711d98e1-7012-41a6-b2da-26756b8194a6
+      version: v1
+    - group: apiextensions.k8s.io
+      kind: CustomResourceDefinition
+      message: CRD is present and Established condition is true
+      name: lvmvolumegroupnodestatuses.lvm.topolvm.io
+      status: Present
+      uuid: 6a1efcc9-834e-4fe2-9c6e-e56e77c6eeae
+      version: v1
+    - group: apiextensions.k8s.io
+      kind: CustomResourceDefinition
+      message: CRD is present and Established condition is true
+      name: lvmvolumegroups.lvm.topolvm.io
+      status: Present
+      uuid: 3ef95b89-cb56-4e55-811c-182b7ba099cf
+      version: v1
+    - dependents:
+        - group: rbac.authorization.k8s.io
+          kind: PolicyRule
+          message: 'cluster rule:{"verbs":["create"],"apiGroups":["authentication.k8s.io"],"resources":["tokenreviews"]}'
+          status: Satisfied
+          version: v1
+        - group: rbac.authorization.k8s.io
+          kind: PolicyRule
+          message: 'cluster rule:{"verbs":["create"],"apiGroups":["authorization.k8s.io"],"resources":["subjectaccessreviews"]}'
+          status: Satisfied
+          version: v1
+        - group: rbac.authorization.k8s.io
+          kind: PolicyRule
+          message: 'cluster rule:{"verbs":["get","list","watch","update","patch"],"apiGroups":[""],"resources":["nodes"]}'
+          status: Satisfied
+          version: v1
+        - group: rbac.authorization.k8s.io
+          kind: PolicyRule
+          message: 'cluster rule:{"verbs":["get","list","watch","create","update","delete","patch"],"apiGroups":["topolvm.io"],"resources":["logicalvolumes","logicalvolumes/status"]}'
+          status: Satisfied
+          version: v1
+        - group: rbac.authorization.k8s.io
+          kind: PolicyRule
+          message: 'cluster rule:{"verbs":["get","list","watch"],"apiGroups":["storage.k8s.io"],"resources":["csidrivers"]}'
+          status: Satisfied
+          version: v1
+      group: ''
+      kind: ServiceAccount
+      message: ''
+      name: vg-manager
+      status: Present
+      version: v1
+    - dependents:
+        - group: rbac.authorization.k8s.io
+          kind: PolicyRule
+          message: 'cluster rule:{"verbs":["create","delete","get","list","patch","update","watch"],"apiGroups":[""],"resources":["configmaps","persistentvolumes"]}'
+          status: Satisfied
+          version: v1
+        - group: rbac.authorization.k8s.io
+          kind: PolicyRule
+          message: 'cluster rule:{"verbs":["create","list","patch","update","watch"],"apiGroups":[""],"resources":["events"]}'
+          status: Satisfied
+          version: v1
+        - group: rbac.authorization.k8s.io
+          kind: PolicyRule
+          message: 'cluster rule:{"verbs":["get","list","watch"],"apiGroups":[""],"resources":["node"]}'
+          status: Satisfied
+          version: v1
+        - group: rbac.authorization.k8s.io
+          kind: PolicyRule
+          message: 'cluster rule:{"verbs":["get","list","patch","update","watch"],"apiGroups":[""],"resources":["nodes"]}'
+          status: Satisfied
+          version: v1
+        - group: rbac.authorization.k8s.io
+          kind: PolicyRule
+          message: 'cluster rule:{"verbs":["delete","get","list","update","watch"],"apiGroups":[""],"resources":["persistentvolumeclaims"]}'
+          status: Satisfied
+          version: v1
+        - group: rbac.authorization.k8s.io
+          kind: PolicyRule
+          message: 'cluster rule:{"verbs":["patch"],"apiGroups":[""],"resources":["persistentvolumeclaims/status"]}'
+          status: Satisfied
+          version: v1
+        - group: rbac.authorization.k8s.io
+          kind: PolicyRule
+          message: 'cluster rule:{"verbs":["delete","get","list","watch"],"apiGroups":[""],"resources":["pods"]}'
+          status: Satisfied
+          version: v1
+        - group: rbac.authorization.k8s.io
+          kind: PolicyRule
+          message: 'cluster rule:{"verbs":["get","list"],"apiGroups":["apiextensions.k8s.io"],"resources":["customresourcedefinitions"]}'
+          status: Satisfied
+          version: v1
+        - group: rbac.authorization.k8s.io
+          kind: PolicyRule
+          message: 'cluster rule:{"verbs":["create","delete","get","list","patch","update","watch"],"apiGroups":["apps"],"resources":["daemonsets","deployments"]}'
+          status: Satisfied
+          version: v1
+        - group: rbac.authorization.k8s.io
+          kind: PolicyRule
+          message: 'cluster rule:{"verbs":["get"],"apiGroups":["apps"],"resources":["replicasets"]}'
+          status: Satisfied
+          version: v1
+        - group: rbac.authorization.k8s.io
+          kind: PolicyRule
+          message: 'cluster rule:{"verbs":["get"],"apiGroups":["config.openshift.io"],"resources":["infrastructures"]}'
+          status: Satisfied
+          version: v1
+        - group: rbac.authorization.k8s.io
+          kind: PolicyRule
+          message: 'cluster rule:{"verbs":["create","delete","get","list","patch","update","watch"],"apiGroups":["coordination.k8s.io"],"resources":["leases"]}'
+          status: Satisfied
+          version: v1
+        - group: rbac.authorization.k8s.io
+          kind: PolicyRule
+          message: 'cluster rule:{"verbs":["create","delete","get","list","patch","update","watch"],"apiGroups":["lvm.topolvm.io"],"resources":["lvmclusters","lvmvolumegroupnodestatuses","lvmvolumegroups"]}'
+          status: Satisfied
+          version: v1
+        - group: rbac.authorization.k8s.io
+          kind: PolicyRule
+          message: 'cluster rule:{"verbs":["update"],"apiGroups":["lvm.topolvm.io"],"resources":["lvmclusters/finalizers","lvmvolumegroupnodestatuses/finalizers","lvmvolumegroups/finalizers"]}'
+          status: Satisfied
+          version: v1
+        - group: rbac.authorization.k8s.io
+          kind: PolicyRule
+          message: 'cluster rule:{"verbs":["get","patch","update"],"apiGroups":["lvm.topolvm.io"],"resources":["lvmclusters/status","lvmvolumegroupnodestatuses/status","lvmvolumegroups/status"]}'
+          status: Satisfied
+          version: v1
+        - group: rbac.authorization.k8s.io
+          kind: PolicyRule
+          message: 'cluster rule:{"verbs":["create","delete","get","list","patch","update","watch"],"apiGroups":["monitoring.coreos.com"],"resources":["servicemonitors"]}'
+          status: Satisfied
+          version: v1
+        - group: rbac.authorization.k8s.io
+          kind: PolicyRule
+          message: 'cluster rule:{"verbs":["create","delete","get","list","patch","update","watch"],"apiGroups":["security.openshift.io"],"resources":["securitycontextconstraints"]}'
+          status: Satisfied
+          version: v1
+        - group: rbac.authorization.k8s.io
+          kind: PolicyRule
+          message: 'cluster rule:{"verbs":["create","delete","get","list","patch","update","watch"],"apiGroups":["snapshot.storage.k8s.io"],"resources":["volumesnapshotclasses"]}'
+          status: Satisfied
+          version: v1
+        - group: rbac.authorization.k8s.io
+          kind: PolicyRule
+          message: 'cluster rule:{"verbs":["get","list","patch","update","watch"],"apiGroups":["snapshot.storage.k8s.io"],"resources":["volumesnapshotcontents"]}'
+          status: Satisfied
+          version: v1
+        - group: rbac.authorization.k8s.io
+          kind: PolicyRule
+          message: 'cluster rule:{"verbs":["patch","update"],"apiGroups":["snapshot.storage.k8s.io"],"resources":["volumesnapshotcontents/status"]}'
+          status: Satisfied
+          version: v1
+        - group: rbac.authorization.k8s.io
+          kind: PolicyRule
+          message: 'cluster rule:{"verbs":["get","list"],"apiGroups":["snapshot.storage.k8s.io"],"resources":["volumesnapshots"]}'
+          status: Satisfied
+          version: v1
+        - group: rbac.authorization.k8s.io
+          kind: PolicyRule
+          message: 'cluster rule:{"verbs":["create","delete","get","list","patch","update","watch"],"apiGroups":["storage.k8s.io"],"resources":["csidrivers","csistoragecapacities","storageclasses"]}'
+          status: Satisfied
+          version: v1
+        - group: rbac.authorization.k8s.io
+          kind: PolicyRule
+          message: 'cluster rule:{"verbs":["get","list","watch"],"apiGroups":["storage.k8s.io"],"resources":["csinodes","volumeattachments"]}'
+          status: Satisfied
+          version: v1
+        - group: rbac.authorization.k8s.io
+          kind: PolicyRule
+          message: 'cluster rule:{"verbs":["create","delete","get","list","patch","update","watch"],"apiGroups":["topolvm.io"],"resources":["logicalvolumes","logicalvolumes/status"]}'
+          status: Satisfied
+          version: v1
+        - group: rbac.authorization.k8s.io
+          kind: PolicyRule
+          message: 'cluster rule:{"verbs":["create"],"apiGroups":["authentication.k8s.io"],"resources":["tokenreviews"]}'
+          status: Satisfied
+          version: v1
+        - group: rbac.authorization.k8s.io
+          kind: PolicyRule
+          message: 'cluster rule:{"verbs":["create"],"apiGroups":["authorization.k8s.io"],"resources":["subjectaccessreviews"]}'
+          status: Satisfied
+          version: v1
+      group: ''
+      kind: ServiceAccount
+      message: ''
+      name: lvms-operator
+      status: Present
+      version: v1
+  certsLastUpdated: '2025-11-15T16:09:33Z'
+  lastTransitionTime: '2025-11-28T18:22:30Z'
+  conditions:
+    - lastTransitionTime: '2025-11-20T14:36:30Z'
+      lastUpdateTime: '2025-11-20T14:36:30Z'
+      message: 'all requirements found, attempting install'
+      phase: InstallReady
+      reason: AllRequirementsMet
+    - lastTransitionTime: '2025-11-20T14:36:32Z'
+      lastUpdateTime: '2025-11-20T14:36:32Z'
+      message: waiting for install components to report healthy
+      phase: Installing
+      reason: InstallSucceeded
+    - lastTransitionTime: '2025-11-20T14:36:32Z'
+      lastUpdateTime: '2025-11-20T14:36:40Z'
+      message: 'installing: waiting for deployment lvms-operator to become ready: deployment "lvms-operator" not available: Deployment does not have minimum availability.'
+      phase: Installing
+      reason: InstallWaiting
+    - lastTransitionTime: '2025-11-20T14:37:44Z'
+      lastUpdateTime: '2025-11-20T14:37:44Z'
+      message: install strategy completed with no errors
+      phase: Succeeded
+      reason: InstallSucceeded
+    - lastTransitionTime: '2025-11-27T23:53:38Z'
+      lastUpdateTime: '2025-11-27T23:53:38Z'
+      message: 'installing: waiting for deployment lvms-operator to become ready: deployment "lvms-operator" not available: Deployment does not have minimum availability.'
+      phase: Failed
+      reason: ComponentUnhealthy
+    - lastTransitionTime: '2025-11-27T23:53:55Z'
+      lastUpdateTime: '2025-11-27T23:53:55Z'
+      message: 'installing: waiting for deployment lvms-operator to become ready: deployment "lvms-operator" not available: Deployment does not have minimum availability.'
+      phase: Pending
+      reason: NeedsReinstall
+    - lastTransitionTime: '2025-11-27T23:53:56Z'
+      lastUpdateTime: '2025-11-27T23:53:56Z'
+      message: 'all requirements found, attempting install'
+      phase: InstallReady
+      reason: AllRequirementsMet
+    - lastTransitionTime: '2025-11-27T23:53:57Z'
+      lastUpdateTime: '2025-11-27T23:53:57Z'
+      message: waiting for install components to report healthy
+      phase: Installing
+      reason: InstallSucceeded
+    - lastTransitionTime: '2025-11-27T23:53:57Z'
+      lastUpdateTime: '2025-11-27T23:53:59Z'
+      message: 'installing: waiting for deployment lvms-operator to become ready: deployment "lvms-operator" not available: Deployment does not have minimum availability.'
+      phase: Installing
+      reason: InstallWaiting
+    - lastTransitionTime: '2025-11-27T23:54:05Z'
+      lastUpdateTime: '2025-11-27T23:54:05Z'
+      message: install strategy completed with no errors
+      phase: Succeeded
+      reason: InstallSucceeded
+    - lastTransitionTime: '2025-11-27T23:54:09Z'
+      lastUpdateTime: '2025-11-27T23:54:09Z'
+      message: 'installing: waiting for deployment lvms-operator to become ready: deployment "lvms-operator" not available: Deployment does not have minimum availability.'
+      phase: Failed
+      reason: ComponentUnhealthy
+    - lastTransitionTime: '2025-11-27T23:54:10Z'
+      lastUpdateTime: '2025-11-27T23:54:10Z'
+      message: 'installing: waiting for deployment lvms-operator to become ready: deployment "lvms-operator" not available: Deployment does not have minimum availability.'
+      phase: Pending
+      reason: NeedsReinstall
+    - lastTransitionTime: '2025-11-27T23:54:11Z'
+      lastUpdateTime: '2025-11-27T23:54:11Z'
+      message: 'all requirements found, attempting install'
+      phase: InstallReady
+      reason: AllRequirementsMet
+    - lastTransitionTime: '2025-11-27T23:54:13Z'
+      lastUpdateTime: '2025-11-27T23:54:13Z'
+      message: waiting for install components to report healthy
+      phase: Installing
+      reason: InstallSucceeded
+    - lastTransitionTime: '2025-11-27T23:54:15Z'
+      lastUpdateTime: '2025-11-27T23:54:15Z'
+      message: install strategy completed with no errors
+      phase: Succeeded
+      reason: InstallSucceeded
+    - lastTransitionTime: '2025-11-28T18:22:07Z'
+      lastUpdateTime: '2025-11-28T18:22:07Z'
+      message: 'installing: waiting for deployment lvms-operator to become ready: deployment "lvms-operator" not available: Deployment does not have minimum availability.'
+      phase: Failed
+      reason: ComponentUnhealthy
+    - lastTransitionTime: '2025-11-28T18:22:24Z'
+      lastUpdateTime: '2025-11-28T18:22:24Z'
+      message: 'installing: waiting for deployment lvms-operator to become ready: deployment "lvms-operator" not available: Deployment does not have minimum availability.'
+      phase: Pending
+      reason: NeedsReinstall
+    - lastTransitionTime: '2025-11-28T18:22:27Z'
+      lastUpdateTime: '2025-11-28T18:22:27Z'
+      message: 'all requirements found, attempting install'
+      phase: InstallReady
+      reason: AllRequirementsMet
+    - lastTransitionTime: '2025-11-28T18:22:29Z'
+      lastUpdateTime: '2025-11-28T18:22:29Z'
+      message: waiting for install components to report healthy
+      phase: Installing
+      reason: InstallSucceeded
+    - lastTransitionTime: '2025-11-28T18:22:30Z'
+      lastUpdateTime: '2025-11-28T18:22:30Z'
+      message: install strategy completed with no errors
+      phase: Succeeded
+      reason: InstallSucceeded
+  phase: Succeeded
+  certsRotateAt: '2027-11-14T16:09:33Z'

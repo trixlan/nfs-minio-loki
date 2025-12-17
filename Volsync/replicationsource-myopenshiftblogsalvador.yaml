@@ -1,0 +1,71 @@
+﻿apiVersion: volsync.backube/v1alpha1
+kind: ReplicationSource
+metadata:
+  creationTimestamp: '2025-12-03T18:41:39Z'
+  generation: 1
+  managedFields:
+    - apiVersion: volsync.backube/v1alpha1
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:spec':
+          .: {}
+          'f:rsyncTLS':
+            .: {}
+            'f:address': {}
+            'f:copyMethod': {}
+            'f:keySecret': {}
+            'f:storageClassName': {}
+            'f:volumeSnapshotClassName': {}
+          'f:sourcePVC': {}
+          'f:trigger':
+            .: {}
+            'f:schedule': {}
+      manager: Mozilla
+      operation: Update
+      time: '2025-12-03T18:41:39Z'
+    - apiVersion: volsync.backube/v1alpha1
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:status':
+          .: {}
+          'f:conditions': {}
+          'f:lastSyncDuration': {}
+          'f:lastSyncTime': {}
+          'f:latestMoverStatus':
+            .: {}
+            'f:logs': {}
+            'f:result': {}
+          'f:nextSyncTime': {}
+          'f:rsyncTLS': {}
+      manager: manager
+      operation: Update
+      subresource: status
+      time: '2025-12-05T22:31:26Z'
+  name: myopenshiftblogsalvador
+  namespace: myopenshiftblog
+  resourceVersion: '14607189'
+  uid: f5839563-f3ca-4cf0-b4d3-687278283ebd
+spec:
+  rsyncTLS:
+    address: volsync-rsync-tls-dst-myopenshiftblogsalvador.myopenshiftblog.svc.clusterset.local
+    copyMethod: Snapshot
+    keySecret: volsync-rsync-tls-myopenshiftblogsalvador
+    storageClassName: lvms-vg1
+    volumeSnapshotClassName: lvms-vg1
+  sourcePVC: rhel-8-magenta-smelt-18-volume
+  trigger:
+    schedule: '*/10 * * * *'
+status:
+  conditions:
+    - lastTransitionTime: '2025-12-05T22:31:26Z'
+      message: Waiting for next scheduled synchronization
+      reason: WaitingForSchedule
+      status: 'False'
+      type: Synchronizing
+  lastSyncDuration: 1m26.407851771s
+  lastSyncTime: '2025-12-05T22:31:26Z'
+  latestMoverStatus:
+    logs: "2025-12-05T22:30:07.297Z\tINFO\tcalc progress total size 32212254720\n2025-12-05T22:31:23.283Z\tINFO\tsync progress total size 32212254720\ndiskrsync completed in 76s"
+    result: Successful
+  nextSyncTime: '2025-12-05T22:40:00Z'
+  rsyncTLS: {}

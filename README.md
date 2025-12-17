@@ -1,6 +1,6 @@
 # Comandos para usar NFS externo
 
-[Youtube Video]([https://](https://www.youtube.com/watch?v=6DmEp0kXUOI&t=1s))
+[Youtube Video](https://www.youtube.com/watch?v=6DmEp0kXUOI&t=1s)
 
 ```shell
 # Se crea el namespace de nfs
@@ -20,7 +20,7 @@ oc create -f test.yaml
 
 # Comandos para crear MinIO
 
-[Deploy MinIO]([https://](https://linuxelite.com.br/blog/minio/))
+[Deploy MinIO](https://linuxelite.com.br/blog/minio/)
 
 ```shell
 oc create -f Minio/minio-ns.yaml
